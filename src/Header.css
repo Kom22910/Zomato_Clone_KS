@@ -1,0 +1,144 @@
+body {
+    padding: 0px;
+}
+
+
+.hsection {
+
+
+    background-image: url("../public/MainPageAsset/10026.webp");
+    background-size: cover;
+    height: 70vh;
+
+    .hsection1 {
+
+        .part1{
+            p{
+                font-size: 20px;
+                font-weight: 500;
+            }
+        }
+
+        .p1{
+            text-align: center;
+        }
+
+        p{
+            color: white;
+        }
+
+        .part2 {
+            p {
+                font-size: 20px;
+                font-weight: 400;
+                color: white;
+            }
+        }
+    }
+
+
+    .hsection2 {
+
+
+        .part2 {
+            p {
+                font-size: 40px;
+                font-weight: 500;
+                color: white;
+            }
+        }
+
+        .part3 {
+            border-radius: 10px;
+
+            input {
+                border: none;
+            }
+        }
+    }
+}
+
+
+
+@media screen and (max-width:768px) and (min-width:557px){
+    
+    .hsection1{
+        
+        .part1{
+            font-size: 16px;
+        }
+
+        .part2{
+            .p1{
+                font-size: 16px !important;
+                font-weight: 500 !important;
+                
+            }
+        }
+    }
+
+
+    .hsection2{
+
+        
+
+        .part2{
+            p{
+                font-size: 20px !important;
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width:430px) and (min-width:359px){
+    
+    .hsection{
+        height: 50vh;
+    }
+
+
+
+    .hsection1{
+        
+        .part1{
+            p{
+                font-size: 12px !important;
+                font-weight: 500;
+            }
+        }
+
+        .part2{
+            .p1{
+                font-size: 10px !important;
+                font-weight: 500 !important;
+                text-align: center;
+            }
+        }
+    }
+
+
+    .hsection2{
+        margin: 4% 0% !important;
+
+        .part2{
+            p{
+                font-size: 16px !important;
+                font-weight: 500;
+            }
+        }
+
+        .e1{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+           
+        }
+
+        .dis{
+            display: none;
+        }
+    }
+}
+
+

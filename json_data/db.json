@@ -1,0 +1,602 @@
+{
+  "foodCard": [
+    {
+      "id": 1,
+      "path": "FoodPageAsset/10044.webp",
+      "title": "Crazy Cheesy",
+      "star": 4.3,
+      "price": 150,
+      "minute": 35,
+      "quantity": 1
+    },
+    {
+      "id": 2,
+      "path": "FoodPageAsset/10042.webp",
+      "title": "McDonald's",
+      "star": 4.3,
+      "price": 200,
+      "minute": 27,
+      "quantity": 1
+    },
+    {
+      "id": 3,
+      "path": "FoodPageAsset/10041.webp",
+      "title": "KFC",
+      "star": 4.1,
+      "price": 200,
+      "minute": 31,
+      "quantity": 1
+    },
+    {
+      "id": 4,
+      "path": "FoodPageAsset/10045.webp",
+      "title": "Pizza Hut",
+      "star": 3.9,
+      "price": 100,
+      "minute": 38,
+      "quantity": 1
+    },
+    {
+      "id": 5,
+      "path": "FoodPageAsset/10047.webp",
+      "title": "Garva Biryani",
+      "star": 3.8,
+      "price": 150,
+      "minute": 24,
+      "quantity": 1
+    },
+    {
+      "id": 6,
+      "path": "FoodPageAsset/10043.webp",
+      "title": "Rolls Mania",
+      "star": 4.4,
+      "price": 150,
+      "minute": 34,
+      "quantity": 1
+    },
+    {
+      "id": 7,
+      "path": "FoodPageAsset/10052.webp",
+      "title": "Burger King",
+      "star": 3.9,
+      "price": 150,
+      "minute": 44,
+      "quantity": 1
+    },
+    {
+      "id": 8,
+      "path": "FoodPageAsset/10049.webp",
+      "title": " Aroma's Hyderabad House",
+      "star": 4.3,
+      "price": 550,
+      "minute": 26,
+      "quantity": 1
+    },
+    {
+      "id": 9,
+      "path": "FoodPageAsset/10053.webp",
+      "title": "Burger - Since 1989",
+      "star": 4.5,
+      "price": 100,
+      "minute": 61,
+      "quantity": 1
+    },
+    {
+      "id": 10,
+      "path": "FoodPageAsset/10051.webp",
+      "title": " Shahji's Parantha House",
+      "star": 4.4,
+      "price": 250,
+      "minute": 28,
+      "quantity": 1
+    },
+    {
+      "id": 11,
+      "path": "FoodPageAsset/10054.webp",
+      "title": " Wendy's Burgers",
+      "star": 4.3,
+      "price": 200,
+      "minute": 31,
+      "quantity": 1
+    },
+    {
+      "id": 12,
+      "path": "FoodPageAsset/10058.webp",
+      "title": " Faasos - Wraps, Rolls & Shawar",
+      "star": 4.4,
+      "price": 200,
+      "minute": 29,
+      "quantity": 1
+    },
+    {
+      "id": 13,
+      "path": "FoodPageAsset/10059.webp",
+      "title": " Theobroma ",
+      "star": 4.4,
+      "price": 200,
+      "minute": 26,
+      "quantity": 1
+    },
+    {
+      "id": 14,
+      "path": "FoodPageAsset/10060.webp",
+      "title": " Subway ",
+      "star": 4.2,
+      "price": 200,
+      "minute": 32,
+      "quantity": 1
+    },
+    {
+      "id": 15,
+      "path": "FoodPageAsset/10061.webp",
+      "title": " Chitale Bandhu Mithaiwale",
+      "star": 4.6,
+      "price": 150,
+      "minute": 34,
+      "quantity": 1
+    },
+    {
+      "id": 16,
+      "path": "FoodPageAsset/10062.webp",
+      "title": "PK Biryani House",
+      "star": 4.2,
+      "price": 200,
+      "minute": 35,
+      "quantity": 1
+    },
+    {
+      "id": 17,
+      "path": "FoodPageAsset/10063.webp",
+      "title": "Irani Cafe",
+      "star": 4.4,
+      "price": 150,
+      "minute": 32,
+      "quantity": 1
+    },
+    {
+      "id": 18,
+      "promo": null,
+      "path": "FoodPageAsset/10064.webp",
+      "title": "Hotel Al Zaika",
+      "star": 3.9,
+      "price": 250,
+      "minute": 37,
+      "quantity": 1
+    },
+    {
+      "id": 19,
+      "path": "FoodPageAsset/10065.webp",
+      "title": "Ganesh Bhel",
+      "star": 4.5,
+      "price": 100,
+      "minute": 24,
+      "quantity": 1
+    },
+    {
+      "id": 20,
+      "path": "FoodPageAsset/10068.webp",
+      "title": "Haldiram's",
+      "star": 4.3,
+      "price": 200,
+      "minute": 32,
+      "quantity": 1
+    },
+    {
+      "id": 21,
+      "path": "FoodPageAsset/10069.webp",
+      "title": "Chaitanya Paranthas",
+      "star": 4.1,
+      "price": 200,
+      "minute": 41,
+      "quantity": 1
+    },
+    {
+      "id": 22,
+      "path": "FoodPageAsset/10070.webp",
+      "title": "Lassi Wassi",
+      "star": 4.5,
+      "price": 100,
+      "minute": 41,
+      "quantity": 1
+    },
+    {
+      "id": 23,
+      "path": "FoodPageAsset/10072.webp",
+      "title": "Cafe Durga",
+      "star": 3.6,
+      "price": 150,
+      "minute": 29,
+      "quantity": 1
+    },
+    {
+      "id": 24,
+      "path": "FoodPageAsset/10074.webp",
+      "title": "The Momo Panda",
+      "star": 3.9,
+      "price": 100,
+      "minute": 39,
+      "quantity": 1
+    }
+  ],
+  "placeCard": [
+    {
+      "id": 1,
+      "path": "PlaceAsset/10006.webp",
+      "title": "Crazy Cheesy",
+      "star": 4.3,
+      "p1": "Chinese, Salad, North Indian",
+      "p2": "Senapati Bapat Road, Pune",
+      "price": "1800",
+      "minute": 3.2,
+      "quantity": 1
+    },
+    {
+      "id": 2,
+      "path": "PlaceAsset/10007.webp",
+      "title": "FC Road Social",
+      "star": 4.1,
+      "p1": "North Indian, Biryani, Pizza, St ",
+      "p2": "Shivaji Nagar, Pune",
+      "price": "1500",
+      "minute": 1.7,
+      "quantity": 1
+    },
+    {
+      "id": 3,
+      "path": "PlaceAsset/10008.webp",
+      "title": "Plunge",
+      "star": 4.3,
+      "p1": "Bar Food, North Indian, Chines ",
+      "p2": "Koregaon Park, Pune",
+      "price": "2500",
+      "minute": 2.7,
+      "quantity": 1
+    },
+    {
+      "id": 4,
+      "path": "PlaceAsset/10009.webp",
+      "title": "The Game Palacio",
+      "star": 4.5,
+      "p1": "Pizza, Sushi, Asian, Italian ",
+      "p2": "The Mills, Bund Garden Road, Pune",
+      "price": "1400",
+      "minute": 1.9,
+      "quantity": 1
+    },
+    {
+      "id": 5,
+      "path": "PlaceAsset/10010.webp",
+      "title": "Persian Darbar",
+      "star": 4.4,
+      "p1": "Pizza, Sushi, Asian, Italian ",
+      "p2": "Camp Area, Pune",
+      "price": "1200",
+      "minute": 1.8,
+      "quantity": 1
+    },
+    {
+      "id": 6,
+      "path": "PlaceAsset/10011.webp",
+      "title": "Feast - Sheraton Grand",
+      "star": 4.3,
+      "p1": "Pizza, Sushi, Asian, Italian ",
+      "p2": "Sheraton Grand, Bund Garden Road, Pune",
+      "price": "1000",
+      "minute": 1.8,
+      "quantity": 1
+    },
+    {
+      "id": 7,
+      "path": "PlaceAsset/10012.webp",
+      "title": "Millers - The Luxury Club",
+      "star": 4.3,
+      "p1": "Pizza, Sushi, Asian, Italian ",
+      "p2": "Sheraton Grand, Bund Garden Road, Pune",
+      "price": "1000",
+      "minute": 2,
+      "quantity": 1
+    },
+    {
+      "id": 8,
+      "path": "PlaceAsset/10013.webp",
+      "title": "Mamagoto",
+      "star": 4.3,
+      "p1": "Pizza, Sushi, Asian, Italian ",
+      "p2": "The Pavillion, Senapati Bapat Road, Pu",
+      "price": "1200",
+      "minute": 2,
+      "quantity": 1
+    },
+    {
+      "id": 9,
+      "path": "PlaceAsset/10014.webp",
+      "title": "Ventana",
+      "star": 4.5,
+      "p1": "Pizza, Sushi, Asian, Italian ",
+      "p2": "The Pavillion, Senapati Bapat Road, Pu",
+      "price": "1200",
+      "minute": 7,
+      "quantity": 1
+    },
+    {
+      "id": 10,
+      "path": "PlaceAsset/10015.webp",
+      "title": "2BHK Diner & Key Club",
+      "star": 4.3,
+      "p1": "Pizza, Sushi, Asian, Italian ",
+      "p2": "The Pavillion, Senapati Bapat Road, Pu",
+      "price": "3000",
+      "minute": 2,
+      "quantity": 1
+    },
+    {
+      "id": 11,
+      "path": "PlaceAsset/10016.webp",
+      "title": "Fountain House",
+      "star": 4.2,
+      "p1": "Pizza, Sushi, Asian, Italian ",
+      "p2": "Shivaji Nagar, Pune",
+      "price": "900",
+      "minute": 3,
+      "quantity": 1
+    },
+    {
+      "id": 12,
+      "path": "PlaceAsset/10017.webp",
+      "title": "Hakuna Matata",
+      "star": 4.2,
+      "p1": "Pizza, Sushi, Asian, Italian ",
+      "p2": "Shivaji Nagar, Pune",
+      "price": "1900",
+      "minute": 1.2,
+      "quantity": 1
+    },
+    {
+      "id": 13,
+      "path": "PlaceAsset/10017.webp",
+      "title": "Hakuna Matata",
+      "star": 4.2,
+      "p1": "Pizza, Sushi, Asian, Italian ",
+      "p2": "Shivaji Nagar, Pune",
+      "price": "1900",
+      "minute": 1.2,
+      "quantity": 1
+    },
+    {
+      "id": 14,
+      "path": "PlaceAsset/10018.webp",
+      "title": "360 Degree - The Revolving Fine",
+      "star": 4,
+      "p1": "Pizza, Sushi, Asian, Italian ",
+      "p2": "Shivaji Nagar, Pune",
+      "price": "1400",
+      "minute": 1.9,
+      "quantity": 1
+    },
+    {
+      "id": 15,
+      "path": "PlaceAsset/10019.webp",
+      "title": "AMBARSARIYA - Authentic Am",
+      "star": 4.6,
+      "p1": "Pizza, Sushi, Asian, Italian ",
+      "p2": "Shivaji Nagar, Pune",
+      "price": "1000",
+      "minute": 2.7,
+      "quantity": 1
+    },
+    {
+      "id": 16,
+      "path": "PlaceAsset/10020.webp",
+      "title": "Addah - The O Hotel",
+      "star": 4.2,
+      "p1": "Pizza, Sushi, Asian, Italian ",
+      "p2": "Shivaji Nagar, Pune",
+      "price": "3000",
+      "minute": 2.9,
+      "quantity": 1
+    },
+    {
+      "id": 17,
+      "path": "PlaceAsset/10021.webp",
+      "title": "Ava Artisan Kitchen & Bar",
+      "star": 4.2,
+      "p1": "Pizza, Sushi, Asian, Italian ",
+      "p2": "Shivaji Nagar, Pune",
+      "price": "3000",
+      "minute": 2.9,
+      "quantity": 1
+    },
+    {
+      "id": 18,
+      "path": "PlaceAsset/10022.webp",
+      "title": "Ava Artisan Kitchen & Bar",
+      "star": 4.2,
+      "p1": "Pizza, Sushi, Asian, Italian ",
+      "p2": "Shivaji Nagar, Pune",
+      "price": "3000",
+      "minute": 2.9,
+      "quantity": 1
+    },
+    {
+      "id": 19,
+      "path": "PlaceAsset/10023.webp",
+      "title": "Mask Club",
+      "star": 4.2,
+      "p1": "Pizza, Sushi, Asian, Italian ",
+      "p2": "Shivaji Nagar, Pune",
+      "price": "3000",
+      "minute": 2.9,
+      "quantity": 1
+    },
+    {
+      "id": 20,
+      "path": "PlaceAsset/10024.webp",
+      "title": "Cherie",
+      "star": 4.2,
+      "p1": "Pizza, Sushi, Asian, Italian ",
+      "p2": "Shivaji Nagar, Pune",
+      "price": "3000",
+      "minute": 2.9,
+      "quantity": 1
+    },
+    {
+      "id": 21,
+      "path": "PlaceAsset/10025.webp",
+      "title": "High Garden",
+      "star": 4.2,
+      "p1": "Pizza, Sushi, Asian, Italian ",
+      "p2": "Shivaji Nagar, Pune",
+      "price": "3000",
+      "minute": 2.9,
+      "quantity": 1
+    },
+    {
+      "id": 22,
+      "path": "PlaceAsset/10026.webp",
+      "title": "Klinq - Cocktails & Cuisinen",
+      "star": 4.2,
+      "p1": "Pizza, Sushi, Asian, Italian ",
+      "p2": "Shivaji Nagar, Pune",
+      "price": "3000",
+      "minute": 2.9,
+      "quantity": 1
+    },
+    {
+      "id": 23,
+      "path": "PlaceAsset/10033.webp",
+      "title": "Publiq",
+      "star": 4.1,
+      "p1": "Pizza, Sushi, Asian, Italian ",
+      "p2": "Shivaji Nagar, Pune",
+      "price": "3000",
+      "minute": 2.8,
+      "quantity": 1
+    },
+    {
+      "id": 24,
+      "path": "PlaceAsset/10040.webp",
+      "title": "Heads Up Rooftop Bar",
+      "star": 4.1,
+      "p1": "Pizza, Sushi, Asian, Italian ",
+      "p2": "Shivaji Nagar, Pune",
+      "price": "3000",
+      "minute": 2.8,
+      "quantity": 1
+    },
+    {
+      "id": 25,
+      "path": "PlaceAsset/10041.webp",
+      "title": "Heads Up Rooftop Bar",
+      "star": 4.1,
+      "p1": "Pizza, Sushi, Asian, Italian ",
+      "p2": "Shivaji Nagar, Pune",
+      "price": "3000",
+      "minute": 2.8,
+      "quantity": 1
+    },
+    {
+      "id": 26,
+      "path": "PlaceAsset/10042.webp",
+      "title": "Akasa Poolbar & Kitchen",
+      "star": 4.1,
+      "p1": "Pizza, Sushi, Asian, Italian ",
+      "p2": "Shivaji Nagar, Pune",
+      "price": "3000",
+      "minute": 2.8,
+      "quantity": 1
+    },
+    {
+      "id": 27,
+      "path": "PlaceAsset/10043.webp",
+      "title": "CHA",
+      "star": 4.1,
+      "p1": "Pizza, Sushi, Asian, Italian ",
+      "p2": "Shivaji Nagar, Pune",
+      "price": "3000",
+      "minute": 2.8,
+      "quantity": 1
+    }
+  ],
+  "cartFood": [
+    {
+      "id": 2,
+      "path": "FoodPageAsset/10042.webp",
+      "title": "McDonald's",
+      "star": 4.3,
+      "price": 200,
+      "minute": 27,
+      "quantity": 1
+    },
+    {
+      "id": 3,
+      "path": "FoodPageAsset/10041.webp",
+      "title": "KFC",
+      "star": 4.1,
+      "price": 200,
+      "minute": 31,
+      "quantity": 1
+    },
+    {
+      "id": 4,
+      "path": "FoodPageAsset/10045.webp",
+      "title": "Pizza Hut",
+      "star": 3.9,
+      "price": 100,
+      "minute": 38,
+      "quantity": 1
+    },
+    {
+      "id": 1,
+      "path": "FoodPageAsset/10044.webp",
+      "title": "Crazy Cheesy",
+      "star": 4.3,
+      "price": 150,
+      "minute": 35,
+      "quantity": 1
+    },
+    {
+      "id": 5,
+      "path": "FoodPageAsset/10047.webp",
+      "title": "Garva Biryani",
+      "star": 3.8,
+      "price": 150,
+      "minute": 24,
+      "quantity": 1
+    }
+  ],
+  "cartPlace": [
+    {
+      "id": 6,
+      "path": "PlaceAsset/10011.webp",
+      "title": "Feast - Sheraton Grand",
+      "star": 4.3,
+      "p1": "Pizza, Sushi, Asian, Italian ",
+      "p2": "Sheraton Grand, Bund Garden Road, Pune",
+      "price": "1000",
+      "minute": 1.8,
+      "quantity": 1
+    },
+    {
+      "id": 7,
+      "path": "PlaceAsset/10012.webp",
+      "title": "Millers - The Luxury Club",
+      "star": 4.3,
+      "p1": "Pizza, Sushi, Asian, Italian ",
+      "p2": "Sheraton Grand, Bund Garden Road, Pune",
+      "price": "1000",
+      "minute": 2,
+      "quantity": 1
+    },
+    {
+      "id": 3,
+      "path": "PlaceAsset/10008.webp",
+      "title": "Plunge",
+      "star": 4.3,
+      "p1": "Bar Food, North Indian, Chines ",
+      "p2": "Koregaon Park, Pune",
+      "price": "2500",
+      "minute": 2.7,
+      "quantity": 1
+    }
+  ]
+}

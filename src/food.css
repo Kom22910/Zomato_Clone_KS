@@ -1,0 +1,400 @@
+
+.foodpage{
+    overflow-x: hidden;
+}
+
+
+
+
+header {
+
+    .dis{
+        display: block;
+    }
+
+    .vis{
+        display: none;
+    }
+
+    .sec1 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            filter: invert(100%);
+        }
+    }
+
+    .part3 {
+        box-shadow: 0px 0px 10px 1px rgba(128, 128, 128, 0.25);
+        border-radius: 10px;
+    }
+
+
+
+    .sec3 {
+
+        margin-top: 0px;
+
+        .p1 {
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+    }
+}
+
+
+
+
+
+section {
+
+    
+
+
+
+    .section1 {
+        background-color: #F8F8F8;
+
+        .part1 {
+            font-size: 30px;
+            font-weight: 500;
+        }
+
+        .para {
+            .p1 {
+                font-size: 18px;
+                font-weight: 600;
+            }
+        }
+    }
+
+
+    .section2 {
+
+        .first {
+            font-size: 30px;
+            font-weight: 500;
+        }
+
+        .second {
+            .image {
+                width: 100%;
+                height: 175px;
+                border-radius: 50%;
+                overflow: hidden;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.112);
+
+                img {
+                    width: 70%;
+                }
+            }
+        }
+
+
+        .para {
+            .p1 {
+                font-size: 18px;
+                font-weight: 600;
+            }
+
+            .p2 {
+                font-size: 12px;
+                font-weight: 400;
+            }
+        }
+    }
+
+
+    .section3 {
+        .part1 {
+            font-size: 30px;
+            font-weight: 500;
+        }
+
+        .part2 {
+            .card_part {
+
+                background-color: white;
+                padding: 2% 3%;
+                border-radius: 20px;
+
+                .image {
+                    height: 40vh;
+                    overflow: hidden;
+                    border-radius: 20px;
+                    position: relative;
+                    display: flex;
+                    justify-content: center;
+
+
+
+                    .promotion {
+                        position: absolute;
+                        top: 2%;
+                        left: 3%;
+                        background-color: black;
+                        color: white;
+                        width: 20%;
+                        text-align: center;
+                        border-radius: 3px;
+                        opacity: 0.4;
+                        font-size: 12px;
+                    }
+
+                    .rate {
+                        width: fit-content;
+                        height: 10%;
+                        position: absolute;
+                        bottom: 4%;
+                        left: 0%;
+                        background-color: #256FEF;
+                        font-size: 16px;
+                        font-weight: 500;
+                        color: white;
+                    }
+                }
+
+
+                .card_part2 {
+
+                    p {
+                        font-size: 16px;
+                        font-weight: 400;
+                        margin-bottom: 1.5%;
+                    }
+
+                    .badge {
+                        font-size: 14px;
+                    }
+
+                    .para {
+                        font-size: 18px;
+                        font-weight: 500;
+                    }
+
+                    .min {
+                        font-size: 12px;
+                        font-weight: 700;
+                    }
+
+
+                    .a1 {
+                        overflow-x: hidden;
+                        text-wrap: nowrap;
+                        text-overflow: ellipsis;
+                    }
+                }
+            }
+
+            .card_part:hover {
+                box-shadow: 0px 0px 5px 6px rgba(0, 0, 0, 0.056);
+            }
+        }
+    }
+}
+
+
+
+
+
+
+@media screen and (max-width:430px) and (min-width:359px) {
+
+    header {
+
+
+        .dis{
+            display: none;
+        }
+    
+        .vis{
+            display: block;
+        }
+
+        .sec1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+
+            img {
+                filter: invert(100%);
+            }
+        }
+
+        .part3 {
+            padding: 0% 4%;
+            padding-right: 1%;
+
+            .flex-karo {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+            }
+
+            input {
+                font-size: 12px;
+            }
+        }
+
+
+
+        .sec3 {
+
+            .col-6 {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding-top: 3%;
+            }
+
+            .p1 {
+                cursor: pointer;
+                font-size: 14px;
+                text-align: center;
+            }
+        }
+    }
+
+    section {
+
+        
+
+        .section1 {
+            background-color: #F8F8F8;
+
+            .part1 {
+                font-size: 20px;
+                font-weight: 500;
+            }
+
+
+            .part2 {
+                p {
+                    font-size: 14px;
+                    font-weight: 500;
+                }
+            }
+        }
+
+
+        .section2 {
+           
+
+            .first {
+                font-size: 20px;
+                font-weight: 500;
+            }
+
+            .second {
+                .image {
+                    width: 100px;
+                    height: 100px;
+                    border-radius: 50%;
+                    overflow: hidden;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.112);
+
+                    img {
+                        width: 70%;
+                    }
+                }
+
+                .para {
+                    padding-top: 5%;
+
+                    .p1 {
+                        font-size: 14px;
+                        font-weight: 500;
+                    }
+
+                    .p2 {
+                        font-size: 10px;
+                        font-weight: 500;
+                    }
+                }
+            }
+        }
+
+
+        .section3 {
+            .part1 {
+                font-size: 20px;
+                font-weight: 500;
+            }
+
+            .part2 {
+
+                .card_part {
+
+                    background-color: rgba(253, 252, 252, 0.873);
+                    padding: 2% 3%;
+                    border-radius: 20px;
+
+                    img{
+                        width: 200% !important;
+                        
+                    }
+
+
+                    .promotion {
+                        font-size: 10px !important;
+                    }
+
+                    .rate {
+                        background-color: #256FEF;
+                        font-size: 14px !important;
+                        font-weight: 500;
+                    }
+
+
+                    .card_part2 {
+
+                        p {
+                            font-size: 12px !important;
+                            font-weight: 400;
+                            margin-bottom: 1.5%;
+                        }
+
+                        .badge {
+                            font-size: 12px !important;
+                        }
+
+                        .a1 {
+                            font-size: 14px;
+                            font-weight: 400;
+                        }
+
+                        .para {
+                            font-size: 16px !important;
+                            font-weight: 700;
+                        }
+
+                        .min {
+                            font-size: 10px !important;
+                            font-weight: 700;
+                        }
+                    }
+                }
+
+                .card_part:hover {
+                    box-shadow: 0px 0px 5px 6px rgba(0, 0, 0, 0.056);
+                }
+            }
+        }
+    }
+
+
+}
+
+
+
