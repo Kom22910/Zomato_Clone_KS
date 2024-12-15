@@ -26,7 +26,6 @@ const CartPage = () => {
 
     const FetchFoodData = async () => {
         let result = await axios.get("http://localhost:3000/cartFood");
-        console.log(result.data);
         setFood(result.data);
     }
 
@@ -49,11 +48,58 @@ const CartPage = () => {
     // calculation part
 
     // const [count, setCount] = useState(3);
-    // const [count,setCount] = useState(1)
+    // const [quantity,setQuantity] = useState(null);
 
     // const dec=(a)=>{
     //     setCount(a);
     // }
+
+    const Decrease = async (id) => {
+        let res = await axios.get(`http://localhost:3000/cartFood/${id}`);
+
+        let num = res.data.quantity;
+
+        if (num > 1) {
+            num = num - 1;
+        }
+        console.log(num)
+
+
+        await axios.patch(`http://localhost:3000/cartFood/${id}`, {
+            quantity: num
+        });
+
+
+    }
+
+
+    const Increase = async (id) => {
+        let res = await axios.get(`http://localhost:3000/cartFood/${id}`);
+
+        let num = res.data.quantity;
+
+        if (num > 0) {
+            num = num + 1;
+        }
+        await axios.patch(`http://localhost:3000/cartFood/${id}`, {
+            quantity: num
+        });
+    }
+
+
+    const DeleteCard1 = async(id)=>{
+        let newdata = food.filter((item) => item.id !== id);
+        setFood(newdata);
+
+        await axios.delete(`http://localhost:3000/cartFood/${id}`)
+    }
+
+    const DeleteCard2 = async(id)=>{
+        let newdata = place.filter((item) => item.id !== id);
+        setPlace(newdata);
+
+        await axios.delete(`http://localhost:3000/cartPlace/${id}`)
+    }
 
 
     // const updateQauntiy=async()=>{
@@ -228,24 +274,35 @@ const CartPage = () => {
                                                     <p className='h5 mt-sm-2 mt-0'>
                                                         <span class="badge bg-success">{val.star}</span>
                                                     </p>
+                                                    <div className="col-11 m-auto">
+                                                        <div className="row">
+                                                            <div className="col-5">
+                                                                <p className='p3 mt-3'>
+                                                                    <div className="col-12">
+                                                                        <div className="row text-center">
 
-                                                    <p className='p3 mt-3'>
-                                                        <div className="col-12">
-                                                            <div className="row text-center">
+                                                                            <div className="col-4 flex-karo">
+                                                                                <p onClick={() => Decrease(val.id)}>-</p>
+                                                                            </div>
+                                                                            <div className="col-4 flex-karo">
+                                                                                <p>{val.quantity}</p>
+                                                                            </div>
+                                                                            <div className="col-4 flex-karo">
+                                                                                <p onClick={() => Increase(val.id)}>+</p>
+                                                                            </div>
 
-                                                                <div className="col-4 flex-karo">
-                                                                    <p>-</p>
-                                                                </div>
-                                                                <div className="col-4 flex-karo">
-                                                                    <p>{val.quantity}</p>
-                                                                </div>
-                                                                <div className="col-4 flex-karo">
-                                                                    <p>+</p>
-                                                                </div>
-
+                                                                        </div>
+                                                                    </div>
+                                                                </p>
                                                             </div>
+
+                                                            <div className="col-2">
+                                                                <img src="delete.png" alt="" className='d-block w-100'  onClick={()=>DeleteCard1(val.id)} />
+                                                            </div>
+
                                                         </div>
-                                                    </p>
+
+                                                    </div>
                                                 </div>
 
                                                 {/* part 3 */}
@@ -281,7 +338,7 @@ const CartPage = () => {
                                 {
                                     place.map((val) => {
 
-                                        
+
 
                                         return (
                                             <div className="row px-sm-3 px-2 mb-4 cards pt-3">
@@ -300,29 +357,41 @@ const CartPage = () => {
                                                         <span class="badge bg-success">{val.star}</span>
                                                     </p>
 
-                                                    <p className='p3 mt-3'>
-                                                        <div className="col-12">
-                                                            <div className="row text-center">
+                                                    <div className="col-11 m-auto">
+                                                        <div className="row">
+                                                            <div className="col-5">
+                                                                <p className='p3 mt-3'>
+                                                                    <div className="col-12">
+                                                                        <div className="row text-center">
 
-                                                                <div className="col-4 flex-karo">
-                                                                    <p>-</p>
-                                                                </div>
-                                                                <div className="col-4 flex-karo">
-                                                                    <p>{val.quantity}</p>
-                                                                </div>
-                                                                <div className="col-4 flex-karo">
-                                                                    <p>+</p>
-                                                                </div>
+                                                                            <div className="col-4 flex-karo">
+                                                                                <p onClick={() => Decrease(val.id)}>-</p>
+                                                                            </div>
+                                                                            <div className="col-4 flex-karo">
+                                                                                <p>{val.quantity}</p>
+                                                                            </div>
+                                                                            <div className="col-4 flex-karo">
+                                                                                <p onClick={() => Increase(val.id)}>+</p>
+                                                                            </div>
 
+                                                                        </div>
+                                                                    </div>
+                                                                </p>
                                                             </div>
+
+                                                            <div className="col-2">
+                                                                <img src="delete.png" alt="" className='d-block w-100'  onClick={()=>DeleteCard2(val.id)} />
+                                                            </div>
+
                                                         </div>
-                                                    </p>
+
+                                                    </div>
                                                 </div>
 
                                                 {/* part 3 */}
                                                 <div className="col-sm-3 col-3 ms-auto-0 ms-auto part3 text-end">
                                                     <p>&#8377; {val.price}</p>
-                                                    <p className='p2 dis'>Subtotal ( {val.quantity} Room ) <span>&#8377; { val.price * val.quantity}</span></p>
+                                                    <p className='p2 dis'>Subtotal ( {val.quantity} Room ) <span>&#8377; {val.price * val.quantity}</span></p>
                                                 </div>
 
                                                 <div className="col-sm-3 col-7 ms-auto part3 text-end vis">

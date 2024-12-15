@@ -473,7 +473,7 @@ const FoodPage = () => {
 
         setTimeout(() => {
             alert("Add to Cart Successfully !! ");
-        }, 1000)
+        }, 100)
     }
 
 
