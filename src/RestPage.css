@@ -226,6 +226,23 @@
 }
 
 
+.addmoreplaces{
+    position: fixed;
+    top: 0%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.812);
+
+
+
+    .section{
+        background-color: white;
+        position: relative;
+        top: 2vh;
+    } 
+
+}
+
+
 
 
 
@@ -482,6 +499,62 @@
 
 
 
+    }
+
+
+
+
+    /* add more food product item  */
+    .addmoreproduct{
+
+        .section{
+            top: 10vh;
+            label{
+                font-size: 14px;
+                font-weight: 500 !important;
+                margin-bottom: 1.5%;
+
+            }
+        }
+        .p1{
+            h2{
+                font-size: 22px;
+            }
+        }
+    }
+
+
+    /* add more places  */
+    .addmoreplaces{
+        position: fixed;
+        top: 0%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.812);
+    
+    
+    
+        .section{
+            background-color: white;
+            position: relative;
+            top: 8vh;
+            border-radius: 5px;
+
+
+            .p1{
+                h2{
+                    font-size: 20px;
+                }
+            }
+
+            form{
+                label{
+                    font-size: 14px;
+                    font-weight: 500 !important;
+                    margin-top: 2%;
+                }
+            }
+        } 
+    
     }
 }
 

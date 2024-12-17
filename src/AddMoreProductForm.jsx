@@ -59,15 +59,15 @@ const AddMoreProductForm = ({close}) => {
 
 
                     {/* section */}
-                    <div className=" col-6 section p-5 pb-3 m-auto">
+                    <div className=" col-sm-6 col-11 section px-3 py-3  p-sm-5 pb-3 m-auto">
                         <div className="row">
 
                             {/* section header */}
-                            <header className="col-12">
+                            <header className="col-12 header">
                                 <div className="row">
 
                                     {/* part1 */}
-                                    <div className="col-sm-9 col-5 p1 ">
+                                    <div className="col-9 p1 ">
                                         <h2>Add New Food Shops</h2>
                                     </div>
 
@@ -82,7 +82,7 @@ const AddMoreProductForm = ({close}) => {
                             <form  onSubmit={(e)=> SubmitDataToServer(e)}>
 
                                 {/* section 1 */}
-                                <div className="col-12 sec1 my-4">
+                                <div className="col-12 sec1 my-sm-4 my-2">
                                     <div className="form-group">
                                         <label className='fw-bold'>Insert Food Image Url : </label>
                                         <input type="text" placeholder='Url' className='form-control' value={data.path}  name='path'   onChange={(e)=>ChangeData(e)}   />
@@ -91,7 +91,7 @@ const AddMoreProductForm = ({close}) => {
 
 
                                 {/* Section 2 */}
-                                <div className="col-12 sec2 my-4">
+                                <div className="col-12 sec2 my-sm-4 my-2">
                                     <div className="form-group">
                                         <label className='fw-bold'>Enter Shop Name : </label>
                                         <input type="text" placeholder='Eg : Chota Vadapav' className='form-control' value={data.title} name='title' onChange={(e)=>ChangeData(e)}   />
@@ -99,7 +99,7 @@ const AddMoreProductForm = ({close}) => {
                                 </div>
 
                                 {/* section 3 */}
-                                <div className="col-12 sec3 my-4">
+                                <div className="col-12 sec3 my-sm-4 my-2">
                                     <div className="form-group">
                                         <label className='fw-bold'>Enter food items name : </label>
                                         <input type="text" placeholder='Eg : Vadapav , idali , juice' className='form-control' value={data.p1} name='p1' onChange={(e)=>ChangeData(e)}   />
@@ -109,27 +109,27 @@ const AddMoreProductForm = ({close}) => {
                                 
 
                                 {/* section 4 */}
-                                <div className="col-12 sec4 my-5 mt-4">
+                                <div className="col-12 sec4 my-sm-5 my-2 mt-sm-4 mt-3">
 
                                     <div className="row">
 
-                                        <div className="form-group col-4">
+                                        <div className="form-group col-sm-4 col-6">
                                             <label className='fw-bold'>Enter Food Price  : </label>
                                             <input type="number" placeholder='Eg : 100' className='form-control' value={data.price} name='price'  onChange={(e)=>ChangeData(e)}  />
                                         </div>
 
-                                        <div className="form-group col-4">
+                                        <div className="form-group col-sm-4 col-6">
                                             <label className='fw-bold'>Enter Quantity : </label>
                                             <input type="number" placeholder='1' className='form-control' value={data.quantity} name='quantity'  onChange={(e)=>ChangeData(e)}  />
                                         </div>
 
-                                        <div className="form-group col-4">
+                                        <div className="form-group col-sm-4 col-6">
                                             <label className='fw-bold'>Enter Star rating : </label>
                                             <input type="number" placeholder='Eg : 4.3' className='form-control' value={data.star} name='star' onChange={(e)=>ChangeData(e)}   />
                                         </div>
 
 
-                                        <div className="form-group col-4 my-3">
+                                        <div className="form-group col-sm-4 col-6 my-sm-3">
                                             <label className='fw-bold'>Delivery in -- min : </label>
                                             <input type="number" placeholder='Eg : 2' className='form-control' value={data.minute} name='minute' onChange={(e)=>ChangeData(e)}   />
                                         </div>
@@ -139,7 +139,7 @@ const AddMoreProductForm = ({close}) => {
 
 
                                 {/* section 5 */}
-                                <div className="col-12 sec5 text-center my-2">
+                                <div className="col-12 sec5 text-center my-4">
                                     <button className='btn btn-success w-25'> Submit</button>
                                 </div>
 
