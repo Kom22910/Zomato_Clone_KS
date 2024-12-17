@@ -32,7 +32,7 @@ const Sec5Line = ({ p, path, fun, list, s }) => {
 
                                     list.map((val) => {
                                         return (
-                                            <li className='col-sm-2 col-6 my-sm-2 my-1'>
+                                            <li className='col-sm-3 col-6 my-sm-2 my-1'>
                                                 <span>{val}</span>
                                             </li>
                                         )

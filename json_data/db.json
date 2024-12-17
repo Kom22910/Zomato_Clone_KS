@@ -2,12 +2,13 @@
   "foodCard": [
     {
       "id": 1,
-      "path": "FoodPageAsset/10044.webp",
+      "path": "https://b.zmtcdn.com/data/pictures/3/18315713/9ebeab778b4ea15c2be2a07d3b826b3d.jpg",
       "title": "Crazy Cheesy",
       "star": 4.3,
       "price": 150,
       "minute": 35,
-      "quantity": 1
+      "quantity": 1,
+      "p1": "Pizza , Pasta , Burger "
     },
     {
       "id": 2,
@@ -16,7 +17,8 @@
       "star": 4.3,
       "price": 200,
       "minute": 27,
-      "quantity": 1
+      "quantity": 1,
+      "p1": "Burger ,Fast Food ,Dessert "
     },
     {
       "id": 3,
@@ -25,7 +27,8 @@
       "star": 4.1,
       "price": 200,
       "minute": 31,
-      "quantity": 1
+      "quantity": 1,
+      "p1": "Pizza , Pasta , Burger "
     },
     {
       "id": 4,
@@ -34,16 +37,18 @@
       "star": 3.9,
       "price": 100,
       "minute": 38,
-      "quantity": 1
+      "quantity": 1,
+      "p1": "Pizza , Pasta , Burger "
     },
     {
       "id": 5,
-      "path": "FoodPageAsset/10047.webp",
+      "path": "https://assets.cntraveller.in/photos/6218cfdf6774879c067d3ece/16:9/w_1920,h_1080,c_limit/best%20biryani%20in%20pune%20lead.jpg",
       "title": "Garva Biryani",
       "star": 3.8,
       "price": 150,
       "minute": 24,
-      "quantity": 1
+      "quantity": 1,
+      "p1": "Pizza , Pasta , Burger "
     },
     {
       "id": 6,
@@ -52,7 +57,8 @@
       "star": 4.4,
       "price": 150,
       "minute": 34,
-      "quantity": 1
+      "quantity": 1,
+      "p1": "Pizza , Pasta , Burger "
     },
     {
       "id": 7,
@@ -61,7 +67,8 @@
       "star": 3.9,
       "price": 150,
       "minute": 44,
-      "quantity": 1
+      "quantity": 1,
+      "p1": "Pizza , Pasta , Burger "
     },
     {
       "id": 8,
@@ -70,7 +77,8 @@
       "star": 4.3,
       "price": 550,
       "minute": 26,
-      "quantity": 1
+      "quantity": 1,
+      "p1": "Pizza , Pasta , Burger "
     },
     {
       "id": 9,
@@ -79,7 +87,8 @@
       "star": 4.5,
       "price": 100,
       "minute": 61,
-      "quantity": 1
+      "quantity": 1,
+      "p1": "Pizza , Pasta , Burger "
     },
     {
       "id": 10,
@@ -88,7 +97,8 @@
       "star": 4.4,
       "price": 250,
       "minute": 28,
-      "quantity": 1
+      "quantity": 1,
+      "p1": "Pizza , Pasta , Burger "
     },
     {
       "id": 11,
@@ -97,7 +107,8 @@
       "star": 4.3,
       "price": 200,
       "minute": 31,
-      "quantity": 1
+      "quantity": 1,
+      "p1": "Pizza , Pasta , Burger "
     },
     {
       "id": 12,
@@ -106,7 +117,8 @@
       "star": 4.4,
       "price": 200,
       "minute": 29,
-      "quantity": 1
+      "quantity": 1,
+      "p1": "Pizza , Pasta , Burger "
     },
     {
       "id": 13,
@@ -115,7 +127,8 @@
       "star": 4.4,
       "price": 200,
       "minute": 26,
-      "quantity": 1
+      "quantity": 1,
+      "p1": "Pizza , Pasta , Burger "
     },
     {
       "id": 14,
@@ -124,7 +137,8 @@
       "star": 4.2,
       "price": 200,
       "minute": 32,
-      "quantity": 1
+      "quantity": 1,
+      "p1": "Pizza , Pasta , Burger "
     },
     {
       "id": 15,
@@ -133,7 +147,8 @@
       "star": 4.6,
       "price": 150,
       "minute": 34,
-      "quantity": 1
+      "quantity": 1,
+      "p1": "Pizza , Pasta , Burger "
     },
     {
       "id": 16,
@@ -142,7 +157,8 @@
       "star": 4.2,
       "price": 200,
       "minute": 35,
-      "quantity": 1
+      "quantity": 1,
+      "p1": "Pizza , Pasta , Burger "
     },
     {
       "id": 17,
@@ -151,17 +167,18 @@
       "star": 4.4,
       "price": 150,
       "minute": 32,
-      "quantity": 1
+      "quantity": 1,
+      "p1": "Pizza , Pasta , Burger "
     },
     {
       "id": 18,
-      "promo": null,
       "path": "FoodPageAsset/10064.webp",
       "title": "Hotel Al Zaika",
       "star": 3.9,
       "price": 250,
       "minute": 37,
-      "quantity": 1
+      "quantity": 1,
+      "p1": "Pizza , Pasta , Burger "
     },
     {
       "id": 19,
@@ -170,7 +187,8 @@
       "star": 4.5,
       "price": 100,
       "minute": 24,
-      "quantity": 1
+      "quantity": 1,
+      "p1": "Pizza , Pasta , Burger "
     },
     {
       "id": 20,
@@ -179,7 +197,8 @@
       "star": 4.3,
       "price": 200,
       "minute": 32,
-      "quantity": 1
+      "quantity": 1,
+      "p1": "Pizza , Pasta , Burger "
     },
     {
       "id": 21,
@@ -188,7 +207,8 @@
       "star": 4.1,
       "price": 200,
       "minute": 41,
-      "quantity": 1
+      "quantity": 1,
+      "p1": "Pizza , Pasta , Burger "
     },
     {
       "id": 22,
@@ -197,7 +217,8 @@
       "star": 4.5,
       "price": 100,
       "minute": 41,
-      "quantity": 1
+      "quantity": 1,
+      "p1": "Pizza , Pasta , Burger "
     },
     {
       "id": 23,
@@ -206,7 +227,8 @@
       "star": 3.6,
       "price": 150,
       "minute": 29,
-      "quantity": 1
+      "quantity": 1,
+      "p1": "Pizza , Pasta , Burger "
     },
     {
       "id": 24,
@@ -215,7 +237,38 @@
       "star": 3.9,
       "price": 100,
       "minute": 39,
-      "quantity": 1
+      "quantity": 1,
+      "p1": "Pizza , Pasta , Burger "
+    },
+    {
+      "path": "https://ik.imagekit.io/awwybhhmo/satellite_images/chinese/beyondmenu/hero/2.jpg?tr=w-3840,q-50",
+      "title": "Chinise Stall",
+      "star": "3",
+      "price": "80",
+      "quantity": "1",
+      "minute": "40",
+      "p1": "Triple rice , chinise bhel , triple noodle",
+      "id": 25
+    },
+    {
+      "path": "https://sukhis.com/app/uploads/2022/04/image1-6-1024x684.jpg",
+      "title": "Anna Idlli",
+      "star": "4",
+      "price": "50",
+      "quantity": "1",
+      "minute": "10",
+      "p1": "Idlli , dosa , uttapa",
+      "id": 26
+    },
+    {
+      "path": "https://im.whatshot.in/img/2018/Apr/south-breakfast-cropped-1523969164.jpg",
+      "title": "house",
+      "star": "2.5",
+      "price": "50",
+      "quantity": "1",
+      "minute": "10",
+      "p1": "vadapav , misal pav , chat , pani puri",
+      "id": 27
     }
   ],
   "placeCard": [
@@ -515,8 +568,42 @@
       "price": "3000",
       "minute": 2.8,
       "quantity": 1
+    },
+    {
+      "path": "https://content3.jdmagicbox.com/v2/comp/mumbai/k7/022pxx22.xx22.140505120111.g2k7/catalogue/biryani-house-viviana-mall-thane-west-thane-biryani-restaurants-h83uoiju5w.jpg",
+      "title": "Biryani House",
+      "star": "4.3",
+      "price": "100",
+      "quantity": "1",
+      "minute": "5",
+      "p1": "Veg Briyani , NonVeg Briyani , Hydrabadi briyani ",
+      "p2": "Shivajinagar , Pune",
+      "id": 28
+    },
+    {
+      "path": "https://im.whatshot.in/img/2018/Apr/rama-krishna-restaurant-camp-pune-restaurants-2fug7kw-1-cropped-1524032949.jpg",
+      "title": "Krishna Hotels ",
+      "star": "4",
+      "price": "40",
+      "quantity": "1",
+      "minute": "5",
+      "p1": "Idlli ,Dosa , South food , North food ",
+      "p2": "Wakad",
+      "id": 29
     }
   ],
   "cartFood": [],
-  "cartPlace": []
+  "cartPlace": [
+    {
+      "id": 2,
+      "path": "PlaceAsset/10007.webp",
+      "title": "FC Road Social",
+      "star": 4.1,
+      "p1": "North Indian, Biryani, Pizza, St ",
+      "p2": "Shivaji Nagar, Pune",
+      "price": "1500",
+      "minute": 1.7,
+      "quantity": 1
+    }
+  ]
 }

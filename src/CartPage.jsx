@@ -21,9 +21,13 @@ const CartPage = () => {
 
     const [show, sethide] = useState(show_page);
 
+    // ********************** holding data declarre
     const [food, setFood] = useState([]);
     const [place, setPlace] = useState([]);
 
+
+
+    // ********************* fetching 
     const FetchFoodData = async () => {
         let result = await axios.get("http://localhost:3000/cartFood");
         setFood(result.data);
@@ -34,12 +38,13 @@ const CartPage = () => {
         setPlace(result2.data);
     }
 
+
+    // *************** fetching initial data 
+
     useEffect(() => {
         FetchFoodData();
         FetchPlaceData();
-    }, [])
-
-
+    }, []);
 
 
 
@@ -54,47 +59,99 @@ const CartPage = () => {
     //     setCount(a);
     // }
 
-    const Decrease = async (id) => {
-        let res = await axios.get(`http://localhost:3000/cartFood/${id}`);
 
-        let num = res.data.quantity;
 
-        if (num > 1) {
-            num = num - 1;
+    // ************************* operation on food part
+
+    const Decrease = async(id) => {
+        let res = [...food];
+        let num = res.findIndex((item) => item.id === id);
+        let value = res[num].quantity;
+
+        if (num !== -1) {
+            if (value > 0) {
+                res[num].quantity -= 1;
+                setFood(res);
+
+                await axios.patch(`http://localhost:3000/cartFood/${id}`, {
+                    quantity: value - 1
+                });
+            }
         }
-        console.log(num)
 
-
-        await axios.patch(`http://localhost:3000/cartFood/${id}`, {
-            quantity: num
-        });
-
-
-    }
-
+    };
 
     const Increase = async (id) => {
-        let res = await axios.get(`http://localhost:3000/cartFood/${id}`);
+        let res = [...food];
+        let num = res.findIndex((item) => item.id === id);
+        let value = res[num].quantity;
+        console.log(value);
 
-        let num = res.data.quantity;
+        if (num !== -1) {
+            if (value >=0) {
+                res[num].quantity = Number(value) + 1;
+                setFood(res);
 
-        if (num > 0) {
-            num = num + 1;
+                await axios.patch(`http://localhost:3000/cartFood/${id}`, {
+                    quantity: value + 1
+                });
+            }
         }
-        await axios.patch(`http://localhost:3000/cartFood/${id}`, {
-            quantity: num
-        });
-    }
+    };
 
 
-    const DeleteCard1 = async(id)=>{
+    const DeleteCard1 = async (id) => {
         let newdata = food.filter((item) => item.id !== id);
         setFood(newdata);
 
         await axios.delete(`http://localhost:3000/cartFood/${id}`)
     }
 
-    const DeleteCard2 = async(id)=>{
+
+
+
+
+
+
+    // ************************ operation on Place card
+
+    const DecreaseP = async(id) => {
+        let res = [...place];
+        let num = res.findIndex((item) => item.id === id);
+        let value = res[num].quantity;
+
+        if (num !== -1) {
+            if (value > 0) {
+                res[num].quantity -= 1;
+                setPlace(res);
+
+                await axios.patch(`http://localhost:3000/cartPlace/${id}`, {
+                    quantity: value -1
+                });
+            }
+        }
+
+    };
+
+    const IncreaseP = async (id) => {
+        let res = [...place];
+        let num = res.findIndex((item) => item.id === id);
+        let value = res[num].quantity;
+        console.log(value);
+
+        if (num !== -1) {
+            if (value >=0) {
+                res[num].quantity = Number(value) + 1;
+                setPlace(res);
+
+                await axios.patch(`http://localhost:3000/cartPlace/${id}`, {
+                    quantity: value + 1
+                });
+            }
+        }
+    };
+
+    const DeleteCard2 = async (id) => {
         let newdata = place.filter((item) => item.id !== id);
         setPlace(newdata);
 
@@ -246,6 +303,10 @@ const CartPage = () => {
                     {/* section  */}
                     <section className='py-5 px-3'>
 
+
+
+
+                        {/* ************************** for Food cart */}
                         {/* section 1 */}
 
                         <div className="col-sm-10 m-auto mt-5 section1 py-3 bg-white">
@@ -268,15 +329,15 @@ const CartPage = () => {
 
 
                                                 {/* part 2 */}
-                                                <div className="col-sm-6 col-5 part2 "    >
+                                                <div className="col-sm-6 col-5 part2" >
                                                     <p className='p1 mb-2'>{val.title}</p>
 
                                                     <p className='h5 mt-sm-2 mt-0'>
                                                         <span class="badge bg-success">{val.star}</span>
                                                     </p>
-                                                    <div className="col-11 m-auto">
+                                                    <div className="col-sm-12 m-auto">
                                                         <div className="row">
-                                                            <div className="col-5">
+                                                            <div className="col-sm-5 col-10 ">
                                                                 <p className='p3 mt-3'>
                                                                     <div className="col-12">
                                                                         <div className="row text-center">
@@ -297,7 +358,7 @@ const CartPage = () => {
                                                             </div>
 
                                                             <div className="col-2">
-                                                                <img src="delete.png" alt="" className='d-block w-100'  onClick={()=>DeleteCard1(val.id)} />
+                                                                <img src="delete.png" alt="" className='d-block w-100' onClick={() => DeleteCard1(val.id)} />
                                                             </div>
 
                                                         </div>
@@ -327,8 +388,10 @@ const CartPage = () => {
 
                         </div>
 
-
+                        {/* ************************** for Place cart */}
                         {/* Section 2 */}
+
+
                         <div className="col-sm-10 m-auto mt-5 section1 py-3 bg-white">
 
                             <p className='fs-2 fw-bold' >Your Booking</p>
@@ -365,13 +428,13 @@ const CartPage = () => {
                                                                         <div className="row text-center">
 
                                                                             <div className="col-4 flex-karo">
-                                                                                <p onClick={() => Decrease(val.id)}>-</p>
+                                                                                <p onClick={() => DecreaseP(val.id)}>-</p>
                                                                             </div>
                                                                             <div className="col-4 flex-karo">
                                                                                 <p>{val.quantity}</p>
                                                                             </div>
                                                                             <div className="col-4 flex-karo">
-                                                                                <p onClick={() => Increase(val.id)}>+</p>
+                                                                                <p onClick={() => IncreaseP(val.id)}>+</p>
                                                                             </div>
 
                                                                         </div>
@@ -380,7 +443,7 @@ const CartPage = () => {
                                                             </div>
 
                                                             <div className="col-2">
-                                                                <img src="delete.png" alt="" className='d-block w-100'  onClick={()=>DeleteCard2(val.id)} />
+                                                                <img src="delete.png" alt="" className='d-block w-100' onClick={() => DeleteCard2(val.id)} />
                                                             </div>
 
                                                         </div>
@@ -391,7 +454,7 @@ const CartPage = () => {
                                                 {/* part 3 */}
                                                 <div className="col-sm-3 col-3 ms-auto-0 ms-auto part3 text-end">
                                                     <p>&#8377; {val.price}</p>
-                                                    <p className='p2 dis'>Subtotal ( {val.quantity} Room ) <span>&#8377; {val.price * val.quantity}</span></p>
+                                                    <p className='p2 dis'>Subtotal ( {val.quantity} Table ) <span>&#8377; {val.price * val.quantity}</span></p>
                                                 </div>
 
                                                 <div className="col-sm-3 col-7 ms-auto part3 text-end vis">

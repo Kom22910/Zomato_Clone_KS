@@ -119,10 +119,11 @@ section {
 
         .part2 {
             .card_part {
-
                 background-color: white;
                 padding: 2% 3%;
                 border-radius: 20px;
+
+                transition: box-shadow 0.3 ease-in-out;
 
                 .image {
                     height: 40vh;
@@ -131,8 +132,6 @@ section {
                     position: relative;
                     display: flex;
                     justify-content: center;
-
-
 
                     .promotion {
                         position: absolute;
@@ -189,11 +188,19 @@ section {
                         text-wrap: nowrap;
                         text-overflow: ellipsis;
                     }
+
+
+
+                    .addtocart{
+                        margin-top: 4%;
+                        margin-bottom: 3%;
+                       border-radius: 50px; 
+                    }
                 }
             }
 
             .card_part:hover {
-                box-shadow: 0px 0px 5px 6px rgba(0, 0, 0, 0.056);
+                box-shadow: 0px 0px 5px 6px rgba(137, 137, 137, 0.23);
             }
         }
     }

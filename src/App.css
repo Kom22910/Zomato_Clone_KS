@@ -101,6 +101,10 @@
                             display: flex;
                             justify-content: center;
                             align-items: center;
+
+                            P{
+                                cursor: pointer;
+                            }
                         }
 
                         p {
