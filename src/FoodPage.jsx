@@ -782,7 +782,7 @@ const FoodPage = () => {
                                 {/* 2 - add more */}
 
                                 <div className="col-12 px-2 py-2 mt-5 text-center">
-                                    <button className='btn btn-success col-sm-3 col-8  py-2' onClick={() => setAddmore(true)} > Add Your Food </button>
+                                    <button className='btn btn-success col-sm-3 col-10 py-2' onClick={() => setAddmore(true)} > Add Your Food </button>
                                 </div>
                             </div>
 
