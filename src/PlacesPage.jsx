@@ -469,16 +469,16 @@ const PlacesPage = () => {
 
 
         axios.post("http://localhost:3000/cartPlace", data)
-        .then((res)=>{
-            setTimeout(()=>{
-                alert("Successfully Added to Cart");
-            },100)
-        })
-        .catch((error)=>{
-            setTimeout(()=>{
-                alert("You Already Added !!!");
-            },100)
-        })
+            .then((res) => {
+                setTimeout(() => {
+                    alert("Successfully Added to Cart");
+                }, 100)
+            })
+            .catch((error) => {
+                setTimeout(() => {
+                    alert("You Already Added !!!");
+                }, 100)
+            })
     }
 
 
@@ -496,7 +496,24 @@ const PlacesPage = () => {
 
     useEffect(() => {
         FetchWholePlaceData();
-        }, [addmore])
+    }, [addmore])
+
+
+
+
+    const [showdrop, sethidedrop] = useState(false);
+
+
+    const hiding = () => {
+        sethidedrop(!showdrop);
+    }
+
+
+
+
+
+
+
 
 
     return (
@@ -523,7 +540,7 @@ const PlacesPage = () => {
                                         <div className="row">
 
                                             {/* first element */}
-                                            <div className="col-5 dis">
+                                            <div className="col-5 dis isko">
                                                 <div className="row">
 
                                                     <div className="col-2">
@@ -535,10 +552,24 @@ const PlacesPage = () => {
                                                     </div>
 
                                                     <div className="col-1">
-                                                        <img src="MainPageAsset/10003.svg" alt="Location" />
+                                                        <img src="MainPageAsset/10003.svg" alt="Location" onClick={()=>hiding()} />
                                                     </div>
 
                                                 </div>
+
+                                                {
+                                                    showdrop &&
+                                                    <div className="col-12 py-2 hiddencol">
+                                                        <div className="col-12" onClick={()=>hiding()}>
+                                                            <p>Pune</p>
+                                                            <p>Baner</p>
+                                                            <p>Moshi</p>
+                                                            <p>Chakan</p>
+                                                            <p>Wakad</p>
+                                                            <p>Wagholi</p>
+                                                        </div>
+                                                    </div>
+                                                }
 
                                             </div>
 
@@ -655,7 +686,7 @@ const PlacesPage = () => {
 
 
                             <div className="col-12 part2">
-        
+
                                 {/* 1 - cards */}
 
                                 <div className="row px-sm-3">
@@ -795,9 +826,9 @@ const PlacesPage = () => {
 
             {
                 addmore && (
-                    <AddMorePlacesForm 
-                            close={() => setAddmore(false)} 
-                            />
+                    <AddMorePlacesForm
+                        close={() => setAddmore(false)}
+                    />
                 )
             }
 

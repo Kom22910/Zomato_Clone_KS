@@ -50,6 +50,7 @@ body {
 
         .part3 {
             border-radius: 10px;
+            position: relative;
 
             input {
                 border: none;
@@ -57,6 +58,37 @@ body {
         }
     }
 }
+
+
+.hiddencol {
+    position: absolute;
+    top: 80%;
+    left: 6%;
+    background-color: rgb(248, 249, 249);
+    box-shadow: 0px 0px 50px 1.7px rgba(0, 0, 0, 0.2);
+    height: 32vh;
+    border-radius: 4px;
+
+    p {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1;
+        margin-bottom: 3%;
+        padding: 2% 8%;
+    }
+
+
+    p:hover {
+        font-weight: 500;
+        color: rgb(255, 0, 60);
+        background-color: rgb(255, 255, 255);
+        background-color: rgb(228, 247, 250);
+    }
+
+
+}
+
+
 
 
 
@@ -140,6 +172,3 @@ body {
         }
     }
 }
-
-
-

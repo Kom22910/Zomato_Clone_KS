@@ -491,6 +491,15 @@ const FoodPage = () => {
     }, [addmore])
 
 
+
+    const [showdrop, sethidedrop] = useState(false);
+
+
+    const hiding=()=>{
+        sethidedrop(!showdrop);
+    }
+
+
     return (
         <StrictMode>
 
@@ -515,7 +524,7 @@ const FoodPage = () => {
                                         <div className="row">
 
                                             {/* first element */}
-                                            <div className="col-5 dis">
+                                            <div className="col-5 dis isko">
                                                 <div className="row">
 
                                                     <div className="col-2">
@@ -527,10 +536,24 @@ const FoodPage = () => {
                                                     </div>
 
                                                     <div className="col-1">
-                                                        <img src="MainPageAsset/10003.svg" alt="Location" />
+                                                        <img src="MainPageAsset/10003.svg" alt="Location"  onClick={()=>hiding()} />
                                                     </div>
 
                                                 </div>
+
+                                                {
+                                                    showdrop &&
+                                                    <div className="col-12 py-2 hiddencol">
+                                                        <div className="col-12" onClick={()=>hiding()}>
+                                                            <p>Pune</p>
+                                                            <p>Baner</p>
+                                                            <p>Moshi</p>
+                                                            <p>Chakan</p>
+                                                            <p>Wakad</p>
+                                                            <p>Wagholi</p>
+                                                        </div>
+                                                    </div>
+                                                }
 
                                             </div>
 
@@ -839,9 +862,9 @@ const FoodPage = () => {
 
             {
                 addmore && (
-                    <AddMoreProductForm 
-                            close={() => setAddmore(false)} 
-                            />
+                    <AddMoreProductForm
+                        close={() => setAddmore(false)}
+                    />
                 )
             }
 

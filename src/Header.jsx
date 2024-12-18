@@ -15,6 +15,13 @@ const HeaderSection = () => {
     }
     const [show, sethide] = useState(show_page);
 
+    const [showdrop, sethidedrop] = useState(false);
+
+
+    const hiding=()=>{
+        sethidedrop(!showdrop);
+    }
+
     return (
         <StrictMode>
             <div className="col-12 p-4 hsection" >
@@ -93,11 +100,26 @@ const HeaderSection = () => {
                                                 <input type="text" placeholder="Pune" className="form-control" />
                                             </div>
 
-                                            <div className="col-sm-1 col-2">
-                                                <img src="MainPageAsset/10003.svg" alt="Location" />
+                                            <div className="col-sm-1 col-2  ">
+                                                <img src="MainPageAsset/10003.svg" alt="Location" onClick={()=>hiding()} />
                                             </div>
 
                                         </div>
+
+                                        {
+                                            showdrop &&
+                                            <div className="col-4 py-2 hiddencol">
+                                                <div className="col-12" onClick={()=>hiding()}>
+                                                    <p>Pune</p>
+                                                    <p>Baner</p>
+                                                    <p>Moshi</p>
+                                                    <p>Chakan</p>
+                                                    <p>Wakad</p>
+                                                    <p>Wagholi</p>
+
+                                                </div>
+                                            </div>
+                                        }
 
                                     </div>
 

@@ -63,7 +63,7 @@ const CartPage = () => {
 
     // ************************* operation on food part
 
-    const Decrease = async(id) => {
+    const Decrease = async (id) => {
         let res = [...food];
         let num = res.findIndex((item) => item.id === id);
         let value = res[num].quantity;
@@ -88,7 +88,7 @@ const CartPage = () => {
         console.log(value);
 
         if (num !== -1) {
-            if (value >=0) {
+            if (value >= 0) {
                 res[num].quantity = Number(value) + 1;
                 setFood(res);
 
@@ -115,7 +115,7 @@ const CartPage = () => {
 
     // ************************ operation on Place card
 
-    const DecreaseP = async(id) => {
+    const DecreaseP = async (id) => {
         let res = [...place];
         let num = res.findIndex((item) => item.id === id);
         let value = res[num].quantity;
@@ -126,7 +126,7 @@ const CartPage = () => {
                 setPlace(res);
 
                 await axios.patch(`http://localhost:3000/cartPlace/${id}`, {
-                    quantity: value -1
+                    quantity: value - 1
                 });
             }
         }
@@ -140,7 +140,7 @@ const CartPage = () => {
         console.log(value);
 
         if (num !== -1) {
-            if (value >=0) {
+            if (value >= 0) {
                 res[num].quantity = Number(value) + 1;
                 setPlace(res);
 
@@ -159,11 +159,14 @@ const CartPage = () => {
     }
 
 
-    // const updateQauntiy=async()=>{
-    //     await axios.patch("http://localhost:3000/cartFood/1" , {
+    const [showdrop, sethidedrop] = useState(false);
 
-    //     })
-    // }
+
+    const hiding = () => {
+        sethidedrop(!showdrop);
+    }
+
+
 
     return (
         <StrictMode>
@@ -192,7 +195,7 @@ const CartPage = () => {
                                         <div className="row">
 
                                             {/* first element */}
-                                            <div className="col-5 dis">
+                                            <div className="col-5 dis isko">
                                                 <div className="row">
 
                                                     <div className="col-2">
@@ -204,10 +207,25 @@ const CartPage = () => {
                                                     </div>
 
                                                     <div className="col-1">
-                                                        <img src="MainPageAsset/10003.svg" alt="Location" />
+                                                        <img src="MainPageAsset/10003.svg" alt="Location"  onClick={()=>hiding()} />
                                                     </div>
 
                                                 </div>
+
+
+                                                {
+                                                    showdrop &&
+                                                    <div className="col-12 py-2 hiddencol">
+                                                        <div className="col-12" onClick={()=>hiding()}>
+                                                            <p>Pune</p>
+                                                            <p>Baner</p>
+                                                            <p>Moshi</p>
+                                                            <p>Chakan</p>
+                                                            <p>Wakad</p>
+                                                            <p>Wagholi</p>
+                                                        </div>
+                                                    </div>
+                                                }
 
                                             </div>
 
