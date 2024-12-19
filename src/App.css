@@ -103,8 +103,8 @@
                             justify-content: center;
                             align-items: center;
 
-                            P{
-                                cursor: poi;
+                            p{
+                                cursor: pointer;
                             }
                         }
 

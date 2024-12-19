@@ -3,12 +3,15 @@
 
 import React, { StrictMode } from 'react'
 
-const Sec3Card = ({title,places, fun , fun1}) => {
+const Sec3Card = ({title,places, fun}) => {
+
+
+
     return (
         <StrictMode>
 
 
-            <div className="col-md-4 col-sm-6 col-10 m-auto px-2 my-md-2"  onClick={fun(title)}>
+            <div className="col-md-4 col-sm-6 col-10 m-auto px-2 my-md-2"  onClick={()=>fun(title)}>
                 <div className="col-12 card1 ">
 
                     <div className="row px-2 py-2 pb-0">

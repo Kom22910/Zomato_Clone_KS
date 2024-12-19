@@ -1,10 +1,14 @@
-import { StrictMode, useState } from "react"
+import { StrictMode, useEffect, useState } from "react"
 import Sec3Card from "./Sec3Card";
+import axios from 'axios';
+import {useNavigate} from 'react-router-dom';
 
 
 
 const Section3 = () => {
 
+
+    const nav = useNavigate();
 
 
     const cardInfo1 = [
@@ -242,16 +246,39 @@ const Section3 = () => {
     const [showwork, setHidework] = useState(false);
     const [mystyle, setStyle] = useState({ right: '0vw' });
 
-    const [dataofchild , setDataofchild] = useState('');
+    const [dataofchild, setDataofchild] = useState('');
+    const [food, setfood] = useState([]);
 
 
-    const getdatafromchild = (d)=>{
+    const abc = (d) => {
+        setDataofchild(d)
+    }
+
+    const funny = (d) => {
         setHidework(true);
-        setDataofchild(d);
+        abc(d);
+        // let num = 50;
+        // setInterval(() => {
+        //     num = num - 1;
+        //     if (mystyle.right !== '0vw') {
+        //         setStyle({right:`-${num}vw`})
+        //     }
+        // }, 5);
+
     }
 
 
+    const FetchFoodData = async () => {
+        let res = await axios.get("http://localhost:3000/foodCard");
+        setfood(res.data);
+    }
 
+    useEffect(() => {
+        FetchFoodData();
+    }, [])
+
+
+    console.log(food);
 
 
 
@@ -280,7 +307,7 @@ const Section3 = () => {
                                             key={val.id}
                                             title={val.place}
                                             places={val.count}
-                                            fun={getdatafromchild}
+                                            fun={funny}
                                         />
                                     )
                                 })
@@ -320,40 +347,60 @@ const Section3 = () => {
 
 
             {
+                showwork && (
 
-                showwork &&
-                <div className="col-6 places" style={mystyle}>
-                    <div className="col-12">
 
-                        <div className="row">
 
-                            <div className="col-8 py-2 pt-3">
-                                <h1>{dataofchild}</h1>
-                            </div>
+                    <div className="col-6 places pt-0 ps-0 pe-0 pb-5" style={mystyle}>
+                        <div className="col-12 realdeal">
 
-                            <div className="col-4  p1 pt-3">
-                                <p className="bg-danger" onClick={() => setHidework(false)}><i class="bi bi-x"></i></p>
-                            </div>
+                            <div className="col-12 r1">
+                                <div className="row ">
 
-                        </div>
-                        <hr />
-
-                        <div className="row r2 px-4 mt-4">
-                            <div className="col-6">
-                                <div className="card">
-                                    <div className="card-header p-0 col-12">
-                                        <img src="FoodPageAsset/10029.webp" alt="" />
+                                    <div className="col-9 pt-3">
+                                        <h1 className="ps-4">{dataofchild}</h1>
                                     </div>
 
-                                    <div className="card-body">
-                                        <p className="text-center fs-4 fw-bold">Pizza</p>
-                                        <button className="btn btn-warning w-100 mb-2">Add to cart</button>
+                                    <div className="col-3 m-auto  p1 pe-5 pt-4">
+                                        <p className="bg-danger ms-auto" onClick={() => { setHidework(false); setStyle({ right: '0vw' }) }}><i class="bi bi-x"></i></p>
                                     </div>
+
                                 </div>
+                            </div>
+        
+
+                            <div className="row r2 px-4 mt-4">
+
+                                {
+                                    food.map((val) => {
+                                        return (
+                                            <div className="col-6">
+                                                <div className="card " onClick={()=>{nav('/food')}}>
+                                                    <div className="card-header p-0 col-12">
+                                                        <img src={val.path} alt="" />
+                                                    </div>
+
+                                                    <div className="card-body">
+                                                        <p className="text-center fs-5 fw-bold">{val.title}</p>
+                                                        <button className="btn btn-success w-100 mb-2">See more</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        )
+                                    })
+                                }
+
                             </div>
                         </div>
                     </div>
-                </div>
+
+
+
+                )
+
+
+
+
             }
 
 

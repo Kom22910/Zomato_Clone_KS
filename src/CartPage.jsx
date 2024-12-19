@@ -446,13 +446,13 @@ const CartPage = () => {
                                                                         <div className="row text-center">
 
                                                                             <div className="col-4 flex-karo">
-                                                                                <p onClick={() => DecreaseP(val.id)}>-</p>
+                                                                                <p onClick={() => DecreaseP(val.id)}  className='p1'>-</p>
                                                                             </div>
                                                                             <div className="col-4 flex-karo">
                                                                                 <p>{val.quantity}</p>
                                                                             </div>
                                                                             <div className="col-4 flex-karo">
-                                                                                <p onClick={() => IncreaseP(val.id)}>+</p>
+                                                                                <p onClick={() => IncreaseP(val.id)}  className='p1'>+</p>
                                                                             </div>
 
                                                                         </div>
