@@ -94,7 +94,7 @@ const Section3 = () => {
             place: "Kharadi",
             count: "857 places"
         },
-        
+
         {
             id: 9,
             place: "Mundhwa",
@@ -206,34 +206,50 @@ const Section3 = () => {
 
 
     const name_path = {
-        state:true,
-        name:"More",
-        path:<i class="bi bi-chevron-down"></i>
+        state: true,
+        name: "More",
+        path: <i class="bi bi-chevron-down"></i>
     }
 
     const name_path2 = {
-        state:false,
-        name:"Less",
-        path:<i class="bi bi-chevron-up"></i>
+        state: false,
+        name: "Less",
+        path: <i class="bi bi-chevron-up"></i>
     }
 
-    const [card , setCard]=useState(cardInfo1);
-    const[n , setN] = useState(name_path);
+    const [card, setCard] = useState(cardInfo1);
+    const [n, setN] = useState(name_path);
 
 
 
 
-    const changeIcon=()=>{
-        
-        if(n.state === true){
+    const changeIcon = () => {
+
+        if (n.state === true) {
             setCard(cardInfo2);
             setN(name_path2);
         }
-        else{
+        else {
             setCard(cardInfo1);
             setN(name_path)
         }
     }
+
+
+
+    // Extra work related to section 3 cards
+
+    const [showwork, setHidework] = useState(false);
+    const [mystyle, setStyle] = useState({ right: '0vw' });
+
+    const [dataofchild , setDataofchild] = useState('');
+
+
+    const getdatafromchild = (d)=>{
+        setHidework(true);
+        setDataofchild(d);
+    }
+
 
 
 
@@ -242,7 +258,7 @@ const Section3 = () => {
     return (
         <StrictMode>
 
-            <div className="col-12 mt-5 section3">
+            <div className="col-12 mt-5 section3 ">
                 <div className="row">
 
 
@@ -264,13 +280,14 @@ const Section3 = () => {
                                             key={val.id}
                                             title={val.place}
                                             places={val.count}
+                                            fun={getdatafromchild}
                                         />
                                     )
                                 })
                             }
 
                             <div className="col-md-4 col-sm-6 col-10 m-auto px-2">
-                                <div className="col-12 card1" onClick={()=>changeIcon()}>
+                                <div className="col-12 card1" onClick={() => changeIcon()}>
 
                                     <div className="row px-2">
 
@@ -292,9 +309,52 @@ const Section3 = () => {
                         </div>
                     </div>
                 </div>
+
             </div>
 
 
+
+
+
+            {/* Extra funny work   */}
+
+
+            {
+
+                showwork &&
+                <div className="col-6 places" style={mystyle}>
+                    <div className="col-12">
+
+                        <div className="row">
+
+                            <div className="col-8 py-2 pt-3">
+                                <h1>{dataofchild}</h1>
+                            </div>
+
+                            <div className="col-4  p1 pt-3">
+                                <p className="bg-danger" onClick={() => setHidework(false)}><i class="bi bi-x"></i></p>
+                            </div>
+
+                        </div>
+                        <hr />
+
+                        <div className="row r2 px-4 mt-4">
+                            <div className="col-6">
+                                <div className="card">
+                                    <div className="card-header p-0 col-12">
+                                        <img src="FoodPageAsset/10029.webp" alt="" />
+                                    </div>
+
+                                    <div className="card-body">
+                                        <p className="text-center fs-4 fw-bold">Pizza</p>
+                                        <button className="btn btn-warning w-100 mb-2">Add to cart</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
 
 
 
