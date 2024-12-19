@@ -269,6 +269,16 @@
       "minute": "10",
       "p1": "vadapav , misal pav , chat , pani puri",
       "id": 27
+    },
+    {
+      "path": "https://cdn-ilcgccf.nitrocdn.com/LaPRQTkcWNcIpckzKeqxvmfxuMNiCrjm/assets/images/optimized/rev-9964cfb/realitytoursandtravel.com/wp-content/uploads/2024/10/Gallery-16-1500x1000-1.jpg",
+      "title": "Bhel Stall",
+      "star": "3.4",
+      "price": "40",
+      "quantity": "1",
+      "minute": "10",
+      "p1": "vadapav , misal pav , chat , pani puri",
+      "id": 28
     }
   ],
   "placeCard": [
@@ -593,17 +603,5 @@
     }
   ],
   "cartFood": [],
-  "cartPlace": [
-    {
-      "id": 2,
-      "path": "PlaceAsset/10007.webp",
-      "title": "FC Road Social",
-      "star": 4.1,
-      "p1": "North Indian, Biryani, Pizza, St ",
-      "p2": "Shivaji Nagar, Pune",
-      "price": "1500",
-      "minute": 1.7,
-      "quantity": 1
-    }
-  ]
+  "cartPlace": []
 }

@@ -471,12 +471,12 @@ const PlacesPage = () => {
         axios.post("http://localhost:3000/cartPlace", data)
             .then((res) => {
                 setTimeout(() => {
-                    alert("Successfully Added to Cart");
+                    setModal({success:true , warning:false});
                 }, 100)
             })
             .catch((error) => {
                 setTimeout(() => {
-                    alert("You Already Added !!!");
+                    setModal({success:false , warning:true});
                 }, 100)
             })
     }
@@ -509,11 +509,12 @@ const PlacesPage = () => {
     }
 
 
+    // ************************* success or already added in cart alert
 
-
-
-
-
+    const [modal, setModal] = useState({
+        success: false,
+        warning: false
+    });
 
 
     return (
@@ -552,7 +553,7 @@ const PlacesPage = () => {
                                                     </div>
 
                                                     <div className="col-1">
-                                                        <img src="MainPageAsset/10003.svg" alt="Location" onClick={()=>hiding()} />
+                                                        <img src="MainPageAsset/10003.svg" alt="Location" onClick={() => hiding()} />
                                                     </div>
 
                                                 </div>
@@ -560,7 +561,7 @@ const PlacesPage = () => {
                                                 {
                                                     showdrop &&
                                                     <div className="col-12 py-2 hiddencol">
-                                                        <div className="col-12" onClick={()=>hiding()}>
+                                                        <div className="col-12" onClick={() => hiding()}>
                                                             <p>Pune</p>
                                                             <p>Baner</p>
                                                             <p>Moshi</p>
@@ -829,6 +830,92 @@ const PlacesPage = () => {
                     <AddMorePlacesForm
                         close={() => setAddmore(false)}
                     />
+                )
+            }
+
+
+
+
+
+            {/* *************** successfully submitted alert */}
+
+            {
+                modal.success && (
+
+                    < div className="col-12 modalforsuccess">
+                        <div className="col-4  m-auto">
+                            <div className="card card1">
+
+
+                                {/* Card header */}
+                                <div className="card-header py-2">
+                                    <div className="row">
+                                        <div className="col-sm-3 col-4 py-2 sec1">
+                                            <NavLink to='/'>
+                                                <img src="MainPageAsset/10028.webp" alt="" className='d-block w-sm-75 w-100' />
+                                            </NavLink>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* card body */}
+                                <div className="card-body mt-2">
+                                    <p className='fs-5 fw-bold p-green'>Successfully Added in Cart !!!</p>
+                                </div>
+
+                                {/* card footer */}
+                                <div className="card-footer">
+                                    <div className="col-4 ms-auto p1 text-end">
+                                        <button className='btn btn-danger' onClick={() => setModal({ success: false, warning: false })}>Close</button>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                )
+            }
+
+
+            {/* *************** already submitted submitted alert */}
+            {
+                modal.warning && (
+
+                    < div className="col-12 modalforsuccess">
+                        <div className="col-4  m-auto">
+                            <div className="card card2">
+
+
+                                {/* Card header */}
+                                <div className="card-header py-2">
+                                    <div className="row">
+                                        <div className="col-sm-3 col-4 py-2 sec1">
+                                            <NavLink to='/'>
+                                                <img src="MainPageAsset/10028.webp" alt="" className='d-block w-sm-75 w-100' />
+                                            </NavLink>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* card body */}
+                                <div className="card-body mt-2">
+                                    <p className='fs-5 fw-bold p-red'>Already Added in Cart !!!</p>
+                                </div>
+
+                                {/* card footer */}
+                                <div className="card-footer">
+                                    <div className="col-4 ms-auto p1 text-end">
+                                        <button className='btn btn-danger' onClick={() => setModal({ success: false, warning: false })}>Close</button>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                    </div>
                 )
             }
 

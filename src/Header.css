@@ -21,6 +21,7 @@ body {
 
         .p1 {
             text-align: center;
+            cursor: pointer;
         }
 
         p {

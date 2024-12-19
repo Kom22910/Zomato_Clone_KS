@@ -327,11 +327,11 @@ const CartPage = () => {
                         {/* ************************** for Food cart */}
                         {/* section 1 */}
 
-                        <div className="col-sm-10 m-auto mt-5 section1 py-3 bg-white">
+                        <div className="col-sm-10 m-auto mt-5 section1 px-3 py-3 bg-white">
 
                             <p className='fs-2 fw-bold'>Your Order</p>
 
-                            <div className="col-12 sec1 py-2 px-sm-1 px-2">
+                            <div className=" col-sm-11 m-auto col-12 sec1 py-2 px-sm-1 px-2">
 
                                 {
                                     food.map((val) => {
@@ -410,11 +410,11 @@ const CartPage = () => {
                         {/* Section 2 */}
 
 
-                        <div className="col-sm-10 m-auto mt-5 section1 py-3 bg-white">
+                        <div className="col-sm-10 m-auto mt-5 section1 px-3 py-3 bg-white">
 
                             <p className='fs-2 fw-bold' >Your Booking</p>
 
-                            <div className="col-12 sec1 py-2 px-sm-1 px-2">
+                            <div className=" col-sm-11 col-12 m-auto sec1 py-2 px-sm-1 px-2">
 
                                 {
                                     place.map((val) => {
