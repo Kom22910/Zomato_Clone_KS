@@ -91,6 +91,63 @@ body {
 
 
 
+.profile{
+    .row{
+        justify-content: center;
+        .para{
+            position: relative;
+            p{
+                position: absolute;
+                top: 14%;
+                font-size: 18px;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+/* profile page  */
+.profile-container{
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.203);
+
+    .profile-page{
+        border-radius: 20px;
+        position: relative;
+        top: 13%;
+        left: 0%;
+        box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.263);
+
+    }
+
+
+    .sec2{
+        font-size: 24px;
+        font-weight: 700;
+
+        .p2{
+            font-size: 18px;
+            font-weight: 500;
+            margin-top: -10px;
+            
+        }
+    }
+
+
+    button{
+        font-size: 14px;
+        font-weight: 500;
+        padding: 6% 15% !important;
+    }
+}
+
+
 
 
 @media screen and (max-width:768px) and (min-width:557px) {

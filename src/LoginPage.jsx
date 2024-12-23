@@ -1,16 +1,66 @@
 
 
 
-import React, { StrictMode, useState } from 'react';
+import React, { StrictMode, useEffect, useState } from 'react';
 import './RestPage.css';
 import SignUpPage from './SignUpPage';
+import axios from 'axios';
 
 
-const LoginPage = ({close}) => {
 
-    const [show,setHide] = useState(false);
+const LoginPage = ({ close , showname }) => {
+
+    const [show, setHide] = useState(false);
+
+    const [Signdata, setSignData] = useState(
+        {
+            email: "",
+            password: "",
+        }
+    )
+
+    const [data, setData] = useState([]);
 
 
+    const SaveData = (e) => {
+        const { name, value } = e.target;
+        setSignData({ ...Signdata, [name]: value });
+    }
+
+    // Submitting form 
+    const SubmitDatatoServer = (e) => {
+        e.preventDefault();
+
+        let comparevalue = data.filter((item) => {
+            return item.email === Signdata.email && item.password === Signdata.password;
+        })
+        
+        if(Signdata.email==="" || Signdata.password===""){
+            alert("Fill the required filled");
+        }
+
+        else if(comparevalue.length !== 0){
+            alert("Successfully Login");
+            close();
+            showname(comparevalue[0].name , comparevalue[0].email , comparevalue[0].id);
+        }
+        else{
+            alert("Incorrect Pasword or Incorrect User Email");
+        }
+    }
+
+
+
+    const FetchSignData = async () => {
+        let res = await axios.get("http://localhost:3000/SignupInfo");
+
+        setData(res.data);
+    }
+
+
+    useEffect(() => {
+        FetchSignData();
+    }, [])
 
 
     return (
@@ -41,44 +91,28 @@ const LoginPage = ({close}) => {
 
                     {/* section 2 */}
 
-                    <div className="col-12 mt-sm-4 section2">
+                    <form onSubmit={(e) => SubmitDatatoServer(e)}>
+                        {/* section 2 */}
 
-                        <div className="col-12 phone px-3 ">
-                            <div className="row">
+                        <div className="col-12 mt-sm-3 section2">
 
-
-                                {/* part1 */}
-                                <div className="col-sm-3 col-4 py-2 part1">
-                                    <div className="row">
-                                        <div className="col-5 p1">
-                                            <img src="MainPageAsset/image.png" alt="" className='img-fluid' />
-                                        </div>
-
-                                        <div className="col-3 p1">
-                                            +91
-                                        </div>
-
-                                        <div className="col-2 p1">
-                                            <img src="MainPageAsset/10010.svg" alt="" />
-                                        </div>
-                                    </div>
+                            <div className="col-12 px-3 ">
+                                <div className="row mt-3">
+                                    <input type="email" placeholder='Email' className='form-control py-2' value={Signdata.email} name='email' onChange={(e) => SaveData(e)} />
                                 </div>
-                                
 
-                                {/* part2 */}
-                                <div className="col-sm-9 col-8 ps-0 pe-0">
-                                    <input type="number" placeholder='Phone' className='form-control py-2' />
+                                <div className="row mt-3">
+                                    <input type="password" placeholder='password' className='form-control py-2' value={Signdata.password} name='password' onChange={(e) => SaveData(e)} />
                                 </div>
                             </div>
                         </div>
 
-                    </div>
 
-
-                    {/* Section 3 */}
-                    <div className="col-12 mt-sm-4 section3">
-                        <button className='btn btn-danger form-control'> Send One Time Password</button>
-                    </div>
+                        {/* Section 3 */}
+                        <div className="col-12 mt-sm-4 section3">
+                            <button className='btn btn-danger form-control'>Login</button>
+                        </div>
+                    </form>
 
 
                     {/* Section 4 */}
@@ -126,7 +160,7 @@ const LoginPage = ({close}) => {
 
                     {/* section 7 */}
                     <div className="col-12 px-3 mt-sm-4 section6">
-                        <p>New to Zomato? <span className='text-danger' onClick={()=>setHide(true)}>Create account</span></p>
+                        <p>New to Zomato? <span className='text-danger' onClick={() => setHide(true)}>Create account</span></p>
                     </div>
 
 
@@ -137,7 +171,7 @@ const LoginPage = ({close}) => {
 
 
                 {
-                    show && (<SignUpPage  close={()=>setHide(false)}  />)
+                    show && (<SignUpPage close={() => setHide(false)} />)
                 }
 
             </div>

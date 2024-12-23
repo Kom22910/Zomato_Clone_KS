@@ -1,8 +1,10 @@
-import { StrictMode, useState } from "react";
+import { StrictMode, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import './Header.css';
 import LoginPage from "./LoginPage";
 import SignUpPage from "./SignUpPage";
+import axios from "axios";
+import Profile from "./Profile";
 
 
 
@@ -18,9 +20,55 @@ const HeaderSection = () => {
     const [showdrop, sethidedrop] = useState(false);
 
 
-    const hiding=()=>{
+    const hiding = () => {
         sethidedrop(!showdrop);
     }
+
+
+
+
+
+    // ***************************** welcome alert operation
+    const [showWelcome, setHideWelcome] = useState({
+        name: "",
+        display: false
+    });
+
+
+
+
+    if (showWelcome.name !== "") {
+        setTimeout(() => {
+            setHideWelcome({
+                display: false
+            })
+        }, 60000)
+    }
+
+
+
+
+    // *********************************  Setting profile 
+    const [profile, setProfile] = useState({
+        id: null,
+        name: "",
+        email: "",
+        display: false,
+        profilepage: false
+    })
+
+    const [usersigndata, setUserSignData] = useState([])
+
+    const FetchUserSignData = async () => {
+        let res = await axios.get("http://localhost:3000/SignupInfo/");
+        setUserSignData(res.data);
+    }
+
+
+    useEffect(() => {
+        FetchUserSignData();
+    }, [profile.id])
+
 
     return (
         <StrictMode>
@@ -51,13 +99,45 @@ const HeaderSection = () => {
                                         </NavLink>
                                     </div>
 
-                                    <div className="col-md-3 col-3">
-                                        <p onClick={() => sethide({ login: true })} className="p1">Log in</p>
-                                    </div>
 
-                                    <div className="col-md-3 col-3">
-                                        <p onClick={() => sethide({ sign: true })} className="p1">Sign Up</p>
-                                    </div>
+
+                                    {
+                                        profile.display ?
+                                            (
+                                                <div className="col-6  ms-auto p-0 profile">
+                                                    <div className="col-10 ms-auto">
+                                                        <div className="row">
+                                                            <NavLink to={`/profile/${profile.id}`}>
+                                                                <div className="col-3 ms-auto">
+                                                                    <img src="https://cdn.pixabay.com/photo/2024/03/08/19/58/ai-generated-8621512_1280.jpg" alt="" className="d-block w-100 rounded-pill" />
+                                                                </div>
+                                                            </NavLink>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            ) :
+                                            (
+                                                <div className="col-5">
+
+                                                    <div className="row">
+
+                                                        <div className="col-md-6 col-3">
+                                                            <p onClick={() => sethide({ login: true })} className="p1">Log in</p>
+                                                        </div>
+
+                                                        <div className="col-md-6 col-3">
+                                                            <p onClick={() => sethide({ sign: true })} className="p1">Sign Up</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            )
+                                    }
+
+
+
+
+
 
                                 </div>
                             </div>
@@ -101,7 +181,7 @@ const HeaderSection = () => {
                                             </div>
 
                                             <div className="col-sm-1 col-2  ">
-                                                <img src="MainPageAsset/10003.svg" alt="Location" onClick={()=>hiding()} />
+                                                <img src="MainPageAsset/10003.svg" alt="Location" onClick={() => hiding()} />
                                             </div>
 
                                         </div>
@@ -109,7 +189,7 @@ const HeaderSection = () => {
                                         {
                                             showdrop &&
                                             <div className="col-4 py-2 hiddencol">
-                                                <div className="col-12" onClick={()=>hiding()}>
+                                                <div className="col-12" onClick={() => hiding()}>
                                                     <p>Pune</p>
                                                     <p>Baner</p>
                                                     <p>Moshi</p>
@@ -152,8 +232,36 @@ const HeaderSection = () => {
 
 
             {
+                showWelcome.display && (
+                    <div className="col-12 py-1 px-5 mt-5">
+                        <h2 className="fw-bold text-warning">Welcome {showWelcome.name} !!!</h2>
+                    </div>
+                )
+            }
+
+
+            {
                 show.login && (
-                    <LoginPage close={() => sethide({ login: false })} />
+                    <LoginPage
+                        close={() => sethide({ login: false })}
+                        showname={(userName, userEmail, sid) => {
+                            setHideWelcome({
+                                name: userName,
+                                display: true
+                            });
+
+                            setProfile({
+                                id: sid,
+                                name: userName,
+                                email: userEmail,
+                                display: true
+                            });
+
+                            setUserSignData(usersigndata.filter((item) => {
+                                return item.id === sid
+                            }))
+                        }}
+                    />
                 )
             }
 
@@ -162,6 +270,11 @@ const HeaderSection = () => {
                     <SignUpPage close={() => sethide({ sign: false })} />
                 )
             }
+
+
+
+
+
         </StrictMode>
     )
 }
