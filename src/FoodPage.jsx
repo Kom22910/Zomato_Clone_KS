@@ -512,6 +512,10 @@ const FoodPage = () => {
     });
 
 
+
+    // Delete card
+
+
     return (
         <StrictMode>
 
@@ -802,6 +806,7 @@ const FoodPage = () => {
                                                             <div className="col-12">
                                                                 <button className='btn btn-warning w-100 addtocart' onClick={() => FetchPlaceData(val.id)} >Add to Cart</button>
                                                             </div>
+                                                            
 
 
                                                         </div>

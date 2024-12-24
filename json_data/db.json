@@ -279,16 +279,6 @@
       "minute": "10",
       "p1": "vadapav , misal pav , chat , pani puri",
       "id": 28
-    },
-    {
-      "path": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg/640px-Good_Food_Display_-_NCI_Visuals_Online.jpg",
-      "title": "Chota vadapav",
-      "star": "3.3",
-      "price": "100",
-      "quantity": "2",
-      "minute": "20",
-      "p1": "Paneer masala , Butter panner , chole bahture",
-      "id": 29
     }
   ],
   "placeCard": [
@@ -613,25 +603,31 @@
     }
   ],
   "cartFood": [],
-  "cartPlace": [
-    {
-      "id": 1,
-      "path": "PlaceAsset/10006.webp",
-      "title": "Crazy Cheesy",
-      "star": 4.3,
-      "p1": "Chinese, Salad, North Indian",
-      "p2": "Senapati Bapat Road, Pune",
-      "price": "1800",
-      "minute": 3.2,
-      "quantity": 1
-    }
-  ],
+  "cartPlace": [],
   "SignupInfo": [
     {
       "name": "Prathmesh Pawar",
       "email": "prathamesh123@gmail.com",
       "password": "12345",
       "id": 1
+    },
+    {
+      "name": "Rohit",
+      "email": "Rohit@gmail.com",
+      "password": "12",
+      "id": 2
+    },
+    {
+      "name": "Abhi",
+      "email": "abhi@gamil.com",
+      "password": "1",
+      "id": 3
     }
-  ]
+  ],
+  "Login": {
+    "show": true
+  },
+  "idofuser": {
+    "id": 1
+  }
 }

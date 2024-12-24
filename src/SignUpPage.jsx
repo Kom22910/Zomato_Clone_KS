@@ -38,7 +38,7 @@ const SignUpPage = ({ close }) => {
         }
         else {
             axios.post("http://localhost:3000/SignupInfo", Signdata)
-                .then((res) => {
+            .then((res) => {
                     alert("Successfully Created account !! ");
 
                     setSubmit(false);

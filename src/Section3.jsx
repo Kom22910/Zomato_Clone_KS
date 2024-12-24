@@ -278,9 +278,6 @@ const Section3 = () => {
     }, [])
 
 
-    console.log(food);
-
-
 
     return (
         <StrictMode>

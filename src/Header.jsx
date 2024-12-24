@@ -65,9 +65,28 @@ const HeaderSection = () => {
     }
 
 
+
+    const [showprofile , setHideProfile] = useState(false);
+
+    
+    const FetchLoginShow=async()=>{
+        let res = await axios.get("http://localhost:3000/Login");
+        setHideProfile(res.data.show);
+    }
+
+
+    const [userid , setuserid] = useState();
+
+    const FetchId=async()=>{
+        let res = await axios.get("http://localhost:3000/idofuser");
+        setuserid(res.data.id);
+    }
+
     useEffect(() => {
         FetchUserSignData();
-    }, [profile.id])
+        FetchLoginShow();
+        FetchId();
+    }, [profile.id , showprofile])
 
 
     return (
@@ -102,13 +121,13 @@ const HeaderSection = () => {
 
 
                                     {
-                                        profile.display ?
+                                        showprofile ?
                                             (
                                                 <div className="col-6  ms-auto p-0 profile">
                                                     <div className="col-10 ms-auto">
                                                         <div className="row">
-                                                            <NavLink to={`/profile/${profile.id}`}>
-                                                                <div className="col-3 ms-auto">
+                                                            <NavLink to={`/profile/${userid}`}>
+                                                                <div className="col-2 ms-auto">
                                                                     <img src="https://cdn.pixabay.com/photo/2024/03/08/19/58/ai-generated-8621512_1280.jpg" alt="" className="d-block w-100 rounded-pill" />
                                                                 </div>
                                                             </NavLink>
@@ -233,8 +252,8 @@ const HeaderSection = () => {
 
             {
                 showWelcome.display && (
-                    <div className="col-12 py-1 px-5 mt-5">
-                        <h2 className="fw-bold text-warning">Welcome {showWelcome.name} !!!</h2>
+                    <div className="col-12 py-1 px-5 mt-5 bg-light">
+                        <h2 className="fw-bold text-danger fw-bold">Welcome {showWelcome.name} !!!</h2>
                     </div>
                 )
             }
@@ -260,6 +279,11 @@ const HeaderSection = () => {
                             setUserSignData(usersigndata.filter((item) => {
                                 return item.id === sid
                             }))
+
+
+                            setHideProfile({
+                                show : true
+                            })
                         }}
                     />
                 )

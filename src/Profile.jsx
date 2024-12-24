@@ -6,20 +6,26 @@ import { NavLink, useParams } from 'react-router-dom';
 
 const Profile = () => {
 
-    const [data , setData] = useState([]);
-    
-    let {id} = useParams();
+    const [data, setData] = useState([]);
 
-    const FetchUserData=async()=>{
+    let { id } = useParams();
+
+    const FetchUserData = async () => {
         let res = await axios.get(`http://localhost:3000/SignupInfo/${id}`);
         setData(res.data);
     }
 
 
-    useEffect(()=>{
-        FetchUserData();
 
-    } , [id]);
+
+    const Logout=()=>{
+        axios.put("http://localhost:3000/Login" ,{ show : false})
+    }
+
+
+    useEffect(() => {
+        FetchUserData();
+    }, []);
 
 
     return (
@@ -45,15 +51,17 @@ const Profile = () => {
                         <div className="col-8 m-auto">
                             <div className="row">
 
-                                <div className="col-4 m-auto text-center">
+                                <div className="col-4 ms-auto text-center">
                                     <NavLink to='/'>
-                                        <button className='btn btn-primary py-2 mt-3'>Sign Out</button>
+                                        <button className='btn btn-primary py-2 mt-3'  onClick={()=>Logout()}>Sign Out</button>
                                     </NavLink>
                                 </div>
 
-                                {/* <div className="col-4 me-auto">
-                                    <button className='btn btn-danger py-2 mt-3'>Close</button>
-                                </div> */}
+                                <div className="col-4 me-auto">
+                                    <NavLink to='/'>
+                                        <button className='btn btn-danger py-2 mt-3'>Close</button>
+                                    </NavLink>
+                                </div>
                             </div>
                         </div>
 

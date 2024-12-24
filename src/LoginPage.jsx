@@ -43,6 +43,8 @@ const LoginPage = ({ close , showname }) => {
             alert("Successfully Login");
             close();
             showname(comparevalue[0].name , comparevalue[0].email , comparevalue[0].id);
+            axios.put("http://localhost:3000/idofuser" , {id : comparevalue[0].id})
+            axios.put("http://localhost:3000/Login" , {show : true})
         }
         else{
             alert("Incorrect Pasword or Incorrect User Email");
@@ -53,7 +55,6 @@ const LoginPage = ({ close , showname }) => {
 
     const FetchSignData = async () => {
         let res = await axios.get("http://localhost:3000/SignupInfo");
-
         setData(res.data);
     }
 

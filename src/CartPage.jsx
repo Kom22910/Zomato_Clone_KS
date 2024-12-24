@@ -103,7 +103,6 @@ const CartPage = () => {
     const DeleteCard1 = async (id) => {
         let newdata = food.filter((item) => item.id !== id);
         setFood(newdata);
-
         await axios.delete(`http://localhost:3000/cartFood/${id}`)
     }
 
