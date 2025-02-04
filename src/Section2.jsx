@@ -1,7 +1,6 @@
 
 
 
-import React, { StrictMode } from 'react'
 import S2Card from './S2Card';
 
 const Section2 = () => {
@@ -41,7 +40,7 @@ const Section2 = () => {
 
 
     return (
-        <StrictMode>
+        <>
 
             <div className="col-12 p-2 section2 mt-5">
 
@@ -102,7 +101,7 @@ const Section2 = () => {
 
 
 
-        </StrictMode>
+        </>
     )
 }
 

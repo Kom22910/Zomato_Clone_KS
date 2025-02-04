@@ -1,4 +1,4 @@
-import { StrictMode, useState } from "react"
+import { useState } from "react"
 import Sec5Line from "./Sec5Line"
 
 
@@ -9,12 +9,12 @@ const Section5 = () => {
 
     const i1 = {
         state:true,
-        icon1:<i class="bi bi-chevron-down"></i>,
+        icon1:<i className="bi bi-chevron-down"></i>,
     }
 
     const i2 = {
         state:false,
-        icon1:<i class="bi bi-chevron-up"></i>
+        icon1:<i className="bi bi-chevron-up"></i>
     }
 
     const[state,setState] = useState(null);
@@ -48,7 +48,7 @@ const Section5 = () => {
     }
 
     return (
-        <StrictMode>
+        <>
 
             <div className="col-12 mt-5 section5 p-md-3 px-4">
                 <h3>Explore options near me</h3>
@@ -83,7 +83,7 @@ const Section5 = () => {
 
 
 
-        </StrictMode>
+        </>
     )
 
 

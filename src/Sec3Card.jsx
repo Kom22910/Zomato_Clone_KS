@@ -1,14 +1,13 @@
 
 
 
-import React, { StrictMode } from 'react'
 
 const Sec3Card = ({title,places, fun}) => {
 
 
 
     return (
-        <StrictMode>
+        <>
 
 
             <div className="col-md-4 col-sm-6 col-10 m-auto px-2 my-md-2"  onClick={()=>fun(title)}>
@@ -34,7 +33,7 @@ const Sec3Card = ({title,places, fun}) => {
 
 
 
-        </StrictMode>
+        </>
     )
 }
 

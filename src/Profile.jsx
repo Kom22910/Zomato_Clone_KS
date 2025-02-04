@@ -1,25 +1,50 @@
 
 
 import axios from 'axios';
-import React, { StrictMode, useEffect, useState } from 'react'
-import { NavLink, useParams } from 'react-router-dom';
+import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from './Auth.jsx';
+const Base_url = process.env.REACT_APP_BACKEND_URL;
 
 const Profile = () => {
 
     const [data, setData] = useState([]);
 
-    let { id } = useParams();
+    const { RemoveToken } = useAuth();
+
+    const token = localStorage.getItem('token');
 
     const FetchUserData = async () => {
-        let res = await axios.get(`http://localhost:3000/SignupInfo/${id}`);
-        setData(res.data);
+        try {
+
+            let res = await axios.get(`${Base_url}user/verify`, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                }
+            });
+
+            let result = await axios.get(`${Base_url}user/${res.data.Data.id}`);
+            setData(result.data.Data);
+            console.log(result.data);
+        }
+        catch (err) {
+            console.log(err);
+            alert(err);
+        }
     }
 
+    const nav = useNavigate();
+
+    const Redirection = () => {
+        nav(-1)
+    };
 
 
 
-    const Logout=()=>{
-        axios.put("http://localhost:3000/Login" ,{ show : false})
+
+    const Logout = () => {
+        RemoveToken();
+        nav('/');
     }
 
 
@@ -52,15 +77,11 @@ const Profile = () => {
                             <div className="row">
 
                                 <div className="col-4 ms-auto text-center">
-                                    <NavLink to='/'>
-                                        <button className='btn btn-primary py-2 mt-3'  onClick={()=>Logout()}>Sign Out</button>
-                                    </NavLink>
+                                    <button className='btn btn-primary py-2 mt-3' onClick={() => Logout()}>Sign Out</button>
                                 </div>
 
                                 <div className="col-4 me-auto">
-                                    <NavLink to='/'>
-                                        <button className='btn btn-danger py-2 mt-3'>Close</button>
-                                    </NavLink>
+                                    <button className='btn btn-danger py-2 mt-3' onClick={Redirection}>Go Back</button>
                                 </div>
                             </div>
                         </div>

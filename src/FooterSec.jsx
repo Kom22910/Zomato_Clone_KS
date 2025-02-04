@@ -4,6 +4,7 @@ import React, { StrictMode, useState } from 'react';
 import './Footer.css';
 import { NavLink } from 'react-router-dom';
 
+
 const FooterSec = () => {
 
 
@@ -134,7 +135,7 @@ const FooterSec = () => {
 
 
     return (
-        <StrictMode>
+        <>
 
             <div className="col-12 footer px-4 py-sm-2 py-4 ">
                 <div className="col-md-10 col-12 m-auto mt-1 pt-5">
@@ -173,8 +174,8 @@ const FooterSec = () => {
                                                     <p>
                                                         {
                                                             show ? (
-                                                                <i class="bi bi-chevron-up"></i>
-                                                            ) : (<i class="bi bi-chevron-down"></i>)
+                                                                <i className="bi bi-chevron-up"></i>
+                                                            ) : (<i className="bi bi-chevron-down"></i>)
                                                         }
                                                     </p>
                                                 </div>
@@ -215,10 +216,10 @@ const FooterSec = () => {
                                     <h5>ABOUT ZOMATO</h5>
 
                                     {
-                                        p1.map((val) => {
+                                        p1.map((val , index) => {
 
                                             return (
-                                                <p>{val}</p>
+                                                <p key={index} >{val}</p>
                                             )
                                         })
                                     }
@@ -230,10 +231,10 @@ const FooterSec = () => {
                                     <h5>ZOMAVERSE</h5>
 
                                     {
-                                        p2.map((val) => {
+                                        p2.map((val , index) => {
 
                                             return (
-                                                <p>{val}</p>
+                                                <p key={index}>{val}</p>
                                             )
                                         })
                                     }
@@ -245,10 +246,10 @@ const FooterSec = () => {
                                     <h5>FOR RESTAURANT</h5>
 
                                     {
-                                        p3.map((val) => {
+                                        p3.map((val , index) => {
 
                                             return (
-                                                <p>{val}</p>
+                                                <p key={index}>{val}</p>
                                             )
                                         })
                                     }
@@ -260,10 +261,10 @@ const FooterSec = () => {
                                     <h5>LEARN MORE</h5>
 
                                     {
-                                        p4.map((val) => {
+                                        p4.map((val , index) => {
 
                                             return (
-                                                <p>{val}</p>
+                                                <p key={index}>{val}</p>
                                             )
                                         })
                                     }
@@ -279,10 +280,10 @@ const FooterSec = () => {
                                     <div className="col-8 ele1 m-auto imp ps-sm-4">
                                         <div className="row">
                                             {
-                                                icon.map((val) => {
+                                                icon.map((val , index) => {
 
                                                     return (
-                                                        <div className="col-2">
+                                                        <div className="col-2" key={index}>
                                                             <img src={val} alt="Linkedin" className='d-block' />
                                                         </div>
                                                     )
@@ -333,10 +334,10 @@ const FooterSec = () => {
                         <div className="row">
 
                             {
-                                flags.map((val) => {
+                                flags.map((val , index) => {
 
                                     return (
-                                        <div className="col-1 p-sm-2 p-1 my-1 card1">
+                                        <div className="col-1 p-sm-2 p-1 my-1 card1" key={index}>
                                             <div className="col-12  ">
                                                 <img src={val} alt="" className='img-fluid' />
                                             </div>
@@ -360,7 +361,7 @@ const FooterSec = () => {
 
 
 
-        </StrictMode>
+        </>
     )
 }
 

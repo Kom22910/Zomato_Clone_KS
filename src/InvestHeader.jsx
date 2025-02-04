@@ -1,6 +1,6 @@
 
 
-import React, { StrictMode, useState } from 'react';
+import{ useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
 const InvestHeader = () => {
@@ -10,7 +10,7 @@ const InvestHeader = () => {
     const [show, setHide] = useState(false);
 
     return (
-        <StrictMode>
+        <>
 
             <div className="col-12 p-5 bg-danger">
 
@@ -76,7 +76,7 @@ const InvestHeader = () => {
 
             </div>
 
-        </StrictMode>
+        </>
     )
 }
 

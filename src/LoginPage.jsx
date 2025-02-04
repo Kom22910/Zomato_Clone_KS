@@ -1,14 +1,16 @@
 
 
 
-import React, { StrictMode, useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './RestPage.css';
 import SignUpPage from './SignUpPage';
 import axios from 'axios';
+import { useAuth } from './Auth.jsx';
+const Base_url=process.env.REACT_APP_BACKEND_URL;
 
 
 
-const LoginPage = ({ close , showname }) => {
+const LoginPage = ({ close, showname }) => {
 
     const [show, setHide] = useState(false);
 
@@ -19,8 +21,8 @@ const LoginPage = ({ close , showname }) => {
         }
     )
 
-    const [data, setData] = useState([]);
 
+    const { Servertoken , IdSet } = useAuth();
 
     const SaveData = (e) => {
         const { name, value } = e.target;
@@ -30,43 +32,26 @@ const LoginPage = ({ close , showname }) => {
     // Submitting form 
     const SubmitDatatoServer = (e) => {
         e.preventDefault();
-
-        let comparevalue = data.filter((item) => {
-            return item.email === Signdata.email && item.password === Signdata.password;
-        })
-        
-        if(Signdata.email==="" || Signdata.password===""){
-            alert("Fill the required filled");
+        const sub = async () => {
+            try {
+                let res = await axios.post(`${Base_url}user/login`, Signdata)
+                alert(res.data.Message);
+                showname(res.data.name , res.data.id);
+                IdSet(res.data.id);
+                Servertoken(res.data.token);
+                close();
+            }
+            catch (err) {
+                return alert(err);
+            }
         }
 
-        else if(comparevalue.length !== 0){
-            alert("Successfully Login");
-            close();
-            showname(comparevalue[0].name , comparevalue[0].email , comparevalue[0].id);
-            axios.put("http://localhost:3000/idofuser" , {id : comparevalue[0].id})
-            axios.put("http://localhost:3000/Login" , {show : true})
-        }
-        else{
-            alert("Incorrect Pasword or Incorrect User Email");
-        }
+        sub();
     }
-
-
-
-    const FetchSignData = async () => {
-        let res = await axios.get("http://localhost:3000/SignupInfo");
-        setData(res.data);
-    }
-
-
-    useEffect(() => {
-        FetchSignData();
-    }, [])
-
 
     return (
 
-        <StrictMode>
+        <>
 
             <div className="col-12 loginpage">
 
@@ -177,7 +162,7 @@ const LoginPage = ({ close , showname }) => {
 
             </div>
 
-        </StrictMode>
+        </>
 
     )
 }

@@ -1,7 +1,4 @@
 
-
-
-import React, { StrictMode } from 'react'
 import Isection1 from './Isection1';
 import Isection2 from './Isection2';
 import Isection3 from './Isection3';
@@ -10,7 +7,7 @@ import Isection5 from './Isection5';
 
 const ISection = () => {
   return (
-    <StrictMode>
+    <>
 
             <div className="col-12 isection mb-5">
                 <div className="row">
@@ -42,7 +39,7 @@ const ISection = () => {
 
 
         
-    </StrictMode>
+    </>
   )
 }
 

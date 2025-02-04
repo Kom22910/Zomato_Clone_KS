@@ -1,11 +1,9 @@
 
 
 
-import React, { StrictMode } from 'react'
-
 const Isection5 = () => {
   return (
-    <StrictMode>
+    <>
 
         <div className="col-12 isection5">
             <div className="col-sm-10 col-11 py-5 px-sm-1 px-3 m-auto">
@@ -42,7 +40,7 @@ const Isection5 = () => {
 
 
 
-    </StrictMode>
+    </>
   )
 }
 

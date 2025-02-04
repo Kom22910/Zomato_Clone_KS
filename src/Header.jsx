@@ -1,96 +1,50 @@
-import { StrictMode, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import './Header.css';
 import LoginPage from "./LoginPage";
 import SignUpPage from "./SignUpPage";
-import axios from "axios";
-import Profile from "./Profile";
+
+import { useAuth } from "./Auth.jsx";
 
 
 
 const HeaderSection = () => {
+    
 
-
+    
     let show_page = {
         login: false,
         sign: false
     }
+    
+    
     const [show, sethide] = useState(show_page);
-
+    
     const [showdrop, sethidedrop] = useState(false);
+    
+    const {isLogin , userId} = useAuth();
 
+    console.log(isLogin , userId);
 
     const hiding = () => {
         sethidedrop(!showdrop);
     }
-
-
-
-
-
+    
+    
     // ***************************** welcome alert operation
-    const [showWelcome, setHideWelcome] = useState({
-        name: "",
-        display: false
-    });
+    const [showprofile , setHideProfile] = useState(false);
+    const [showWelcome, setHideWelcome] = useState("");
 
-
-
-
-    if (showWelcome.name !== "") {
-        setTimeout(() => {
-            setHideWelcome({
-                display: false
-            })
-        }, 60000)
+    const ShowName = (name , id)=>{
+        setHideWelcome(name);
+        setHideProfile(true);
     }
-
-
 
 
     // *********************************  Setting profile 
-    const [profile, setProfile] = useState({
-        id: null,
-        name: "",
-        email: "",
-        display: false,
-        profilepage: false
-    })
-
-    const [usersigndata, setUserSignData] = useState([])
-
-    const FetchUserSignData = async () => {
-        let res = await axios.get("http://localhost:3000/SignupInfo/");
-        setUserSignData(res.data);
-    }
-
-
-
-    const [showprofile , setHideProfile] = useState(false);
-
-    
-    const FetchLoginShow=async()=>{
-        let res = await axios.get("http://localhost:3000/Login");
-        setHideProfile(res.data.show);
-    }
-
-
-    const [userid , setuserid] = useState();
-
-    const FetchId=async()=>{
-        let res = await axios.get("http://localhost:3000/idofuser");
-        setuserid(res.data.id);
-    }
-
-    useEffect(() => {
-        FetchUserSignData();
-        FetchLoginShow();
-        FetchId();
-    }, [profile.id , showprofile])
-
 
     return (
-        <StrictMode>
+        <>
             <div className="col-12 p-4 hsection" >
                 <div className="row">
 
@@ -120,13 +74,13 @@ const HeaderSection = () => {
 
 
 
-                                    {
-                                        showprofile ?
+                                    {/* {
+                                        isLogin ?
                                             (
                                                 <div className="col-6  ms-auto p-0 profile">
                                                     <div className="col-10 ms-auto">
                                                         <div className="row">
-                                                            <NavLink to={`/profile/${userid}`}>
+                                                            <NavLink to={`/profile/${userId}`}>
                                                                 <div className="col-2 ms-auto">
                                                                     <img src="https://cdn.pixabay.com/photo/2024/03/08/19/58/ai-generated-8621512_1280.jpg" alt="" className="d-block w-100 rounded-pill" />
                                                                 </div>
@@ -151,7 +105,7 @@ const HeaderSection = () => {
                                                     </div>
                                                 </div>
                                             )
-                                    }
+                                    } */}
 
 
 
@@ -251,9 +205,9 @@ const HeaderSection = () => {
 
 
             {
-                showWelcome.display && (
-                    <div className="col-12 py-1 px-5 mt-5 bg-light">
-                        <h2 className="fw-bold text-danger fw-bold">Welcome {showWelcome.name} !!!</h2>
+                showWelcome && (
+                    <div className="col-12 py-1 px-5 mt-5">
+                        <h2 className="fw-bold text-danger fw-bold">Welcome {showWelcome} !!!</h2>
                     </div>
                 )
             }
@@ -263,28 +217,7 @@ const HeaderSection = () => {
                 show.login && (
                     <LoginPage
                         close={() => sethide({ login: false })}
-                        showname={(userName, userEmail, sid) => {
-                            setHideWelcome({
-                                name: userName,
-                                display: true
-                            });
-
-                            setProfile({
-                                id: sid,
-                                name: userName,
-                                email: userEmail,
-                                display: true
-                            });
-
-                            setUserSignData(usersigndata.filter((item) => {
-                                return item.id === sid
-                            }))
-
-
-                            setHideProfile({
-                                show : true
-                            })
-                        }}
+                        showname={ShowName}
                     />
                 )
             }
@@ -299,7 +232,7 @@ const HeaderSection = () => {
 
 
 
-        </StrictMode>
+        </>
     )
 }
 

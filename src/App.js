@@ -1,19 +1,19 @@
 
 
-import React, { StrictMode } from 'react';
 import Layout from './Layout';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import GetAppPage from './GetAppPage';
-import InvestorPage from './InvestorPage';
-import FoodPage from './FoodPage';
-import PlacesPage from './PlacesPage';
-import CartPage from './CartPage';
-import Profile from './Profile';
-const App = () => {
+import GetAppPage from './GetAppPage.jsx';
+import InvestorPage from './InvestorPage.jsx';
+import FoodPage from './FoodPage.jsx';
+import PlacesPage from './PlacesPage.jsx';
+import CartPage from './CartPage.jsx';
+import Profile from './Profile.jsx';
 
+const App = () => {
+  
 
   return (
-    <StrictMode>
+    <>
 
 
       <Router>
@@ -26,14 +26,14 @@ const App = () => {
             <Route path='/food' element={<FoodPage/>} ></Route>
             <Route path='/places' element={<PlacesPage/>}  ></Route>
             <Route path='/cart' element={<CartPage/>} ></Route>
-            <Route path='/profile/:id' element={<Profile/>} ></Route>
+            <Route path='/profile/' element={<Profile/>} ></Route>
 
         </Routes>
        
       </Router>
 
 
-    </StrictMode>
+    </>
   )
 }
 

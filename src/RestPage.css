@@ -186,16 +186,18 @@
 
 .getapp {
 
+    overflow-x: hidden;
+
 
     .sec2,
     .sec3 {
         margin: auto;
-        margin-top: 6%;
+        margin-top: 3%;
     }
 
     .sec1 {
 
-        img {
+        .img1 {
             filter: invert(100%);
         }
     }

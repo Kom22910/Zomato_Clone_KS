@@ -1,13 +1,12 @@
 
 
 
-import React, { StrictMode } from 'react'
 
 const Sec5Line = ({ p, path, fun, list, s }) => {
 
 
     return (
-        <StrictMode>
+        <>
 
             <div className="col-12 firstLine mt-4 px-sm-1 px-3" onClick={fun}>
                 <div className="row">
@@ -48,7 +47,7 @@ const Sec5Line = ({ p, path, fun, list, s }) => {
 
 
 
-        </StrictMode>
+        </>
     )
 }
 

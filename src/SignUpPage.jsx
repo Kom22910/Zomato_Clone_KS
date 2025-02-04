@@ -2,13 +2,16 @@
 
 
 
-import React, { StrictMode, useState } from 'react';
+import React, { useState } from 'react';
 import './RestPage.css';
 import LoginPage from './LoginPage';
 import axios from 'axios';
 import { NavLink } from 'react-router-dom';
 
+const Base_url = process.env.REACT_APP_BACKEND_URL;
+
 const SignUpPage = ({ close }) => {
+
 
     const [show, setHide] = useState(false);
 
@@ -30,20 +33,16 @@ const SignUpPage = ({ close }) => {
     }
 
     // Submitting form 
-    const SubmitDatatoServer = (e) => {
+    const SubmitDatatoServer = async (e) => {
         e.preventDefault();
 
-        if (Signdata.name === "" || Signdata.email === "" || Signdata.password === "") {
-            alert("Fill all the required field");
-        }
-        else {
-            axios.post("http://localhost:3000/SignupInfo", Signdata)
-            .then((res) => {
+        try {
+            await axios.post(`${Base_url}user/signup`, Signdata)
+                .then((res) => {
                     alert("Successfully Created account !! ");
-
                     setSubmit(false);
                     close();
-                    
+
                     setTimeout(() => {
                         setSignData({
                             name: "",
@@ -53,7 +52,10 @@ const SignUpPage = ({ close }) => {
                     }, 100)
 
                 })
-
+        }
+        catch (err) {
+            alert(err);
+            console.log(err);
         }
 
     }
@@ -61,7 +63,7 @@ const SignUpPage = ({ close }) => {
 
     return (
 
-        <StrictMode>
+        <>
 
             <div className="col-12 signupPage">
 
@@ -172,7 +174,7 @@ const SignUpPage = ({ close }) => {
                 }
             </div>
 
-        </StrictMode >
+        </ >
 
     )
 }

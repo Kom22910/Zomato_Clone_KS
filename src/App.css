@@ -27,6 +27,17 @@
 }
 
 
+.loading{
+    background-color: rgba(0, 0, 0, 0.836);
+    position: fixed;
+    height: 100vh;
+    z-index: 1000;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 
 
 @keyframes ani1 {

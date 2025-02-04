@@ -1,4 +1,3 @@
-import { StrictMode } from "react"
 import Section1 from "./Section1";
 import './section.css';
 import Section2 from "./Section2";
@@ -13,7 +12,7 @@ const Section =()=>{
 
 
     return(
-        <StrictMode>
+        <>
 
             <div className="col-md-10 mt-5 p-4 m-auto">
                 <div className="row">
@@ -38,7 +37,7 @@ const Section =()=>{
                 </div>
             </div>
 
-        </StrictMode>
+        </>
     )
 }
 

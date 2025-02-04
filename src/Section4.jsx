@@ -1,18 +1,10 @@
-import { StrictMode } from "react"
-
-
 
 
 const Section4 = () => {
 
 
-    const i1 = {
-        type : "Email"
-    }
-
-
     return (
-        <StrictMode>
+        <>
 
             <div className="col-12 mt-5 section4">
                 <div className="row">
@@ -101,7 +93,7 @@ const Section4 = () => {
 
 
 
-        </StrictMode>
+        </>
     )
 }
 

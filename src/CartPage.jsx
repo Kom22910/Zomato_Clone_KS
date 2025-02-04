@@ -1,15 +1,17 @@
 
-
-
-
-
-import React, { StrictMode, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import LoginPage from './LoginPage';
 import SignUpPage from './SignUpPage';
 import axios from 'axios';
-
+import { useAuth } from './Auth.jsx';
 import './App.css';
+
+
+
+const Base_url = process.env.REACT_APP_BACKEND_URL;
+
+
 
 const CartPage = () => {
 
@@ -22,20 +24,23 @@ const CartPage = () => {
     const [show, sethide] = useState(show_page);
 
     // ********************** holding data declarre
+
+
     const [food, setFood] = useState([]);
     const [place, setPlace] = useState([]);
 
+    const { userId, isLogin } = useAuth();
 
 
     // ********************* fetching 
     const FetchFoodData = async () => {
-        let result = await axios.get("http://localhost:3000/cartFood");
-        setFood(result.data);
+        let res = await axios.get(`${Base_url}cart/info/getFood`);
+        setFood(res.data.Data);
     }
 
     const FetchPlaceData = async () => {
-        let result2 = await axios.get("http://localhost:3000/cartPlace");
-        setPlace(result2.data);
+        let res = await axios.get(`${Base_url}cart/info/getPlace`);
+        setPlace(res.data.Data);
     }
 
 
@@ -48,34 +53,23 @@ const CartPage = () => {
 
 
 
-
-
-    // calculation part
-
-    // const [count, setCount] = useState(3);
-    // const [quantity,setQuantity] = useState(null);
-
-    // const dec=(a)=>{
-    //     setCount(a);
-    // }
-
-
-
     // ************************* operation on food part
 
     const Decrease = async (id) => {
+
         let res = [...food];
-        let num = res.findIndex((item) => item.id === id);
-        let value = res[num].quantity;
+        let newUpdate = res.filter((item) => item._id === id);
+        let value = newUpdate[0].quantity;
 
-        if (num !== -1) {
+        if (newUpdate[0]) {
             if (value > 0) {
-                res[num].quantity -= 1;
-                setFood(res);
+                newUpdate[0].quantity -= 1;
 
-                await axios.patch(`http://localhost:3000/cartFood/${id}`, {
+                setFood(res);
+                await axios.patch(`${Base_url}cart/info/${id}`, {
                     quantity: value - 1
-                });
+                })
+                    .catch(err => console.log(err));
             }
         }
 
@@ -83,27 +77,37 @@ const CartPage = () => {
 
     const Increase = async (id) => {
         let res = [...food];
-        let num = res.findIndex((item) => item.id === id);
-        let value = res[num].quantity;
-        console.log(value);
+        let newUpdate = res.filter((item) => item._id === id);
+        let value = newUpdate[0].quantity;
 
-        if (num !== -1) {
+        if (newUpdate[0]) {
             if (value >= 0) {
-                res[num].quantity = Number(value) + 1;
-                setFood(res);
+                newUpdate[0].quantity += 1;
 
-                await axios.patch(`http://localhost:3000/cartFood/${id}`, {
+                setFood(res);
+                await axios.patch(`${Base_url}cart/info/${id}`, {
                     quantity: value + 1
-                });
+                })
+                    .then(res => {
+                        console.log(res)
+                    })
+                    .catch(err => console.log(err));
             }
         }
     };
 
 
     const DeleteCard1 = async (id) => {
-        let newdata = food.filter((item) => item.id !== id);
+        let newdata = food.filter((item) => item._id !== id);
         setFood(newdata);
-        await axios.delete(`http://localhost:3000/cartFood/${id}`)
+
+        await axios.delete(`${Base_url}cart/info/${id}`)
+            .then((res) => {
+                alert(res.data.Message);
+            })
+            .catch(err => {
+                console.log(err);
+            })
     }
 
 
@@ -116,17 +120,18 @@ const CartPage = () => {
 
     const DecreaseP = async (id) => {
         let res = [...place];
-        let num = res.findIndex((item) => item.id === id);
-        let value = res[num].quantity;
+        let newUpdate = res.filter((item) => item._id === id);
+        let value = newUpdate[0].quantity;
 
-        if (num !== -1) {
+        if (newUpdate[0]) {
             if (value > 0) {
-                res[num].quantity -= 1;
+                newUpdate[0].quantity -= 1;
                 setPlace(res);
 
-                await axios.patch(`http://localhost:3000/cartPlace/${id}`, {
+                await axios.patch(`${Base_url}cart/info/${id}`, {
                     quantity: value - 1
-                });
+                })
+                    .catch(err => console.log(err));
             }
         }
 
@@ -134,27 +139,28 @@ const CartPage = () => {
 
     const IncreaseP = async (id) => {
         let res = [...place];
-        let num = res.findIndex((item) => item.id === id);
-        let value = res[num].quantity;
-        console.log(value);
+        let newUpdate = res.filter((item) => item._id === id);
+        let value = newUpdate[0].quantity;
 
-        if (num !== -1) {
+        if (newUpdate[0]) {
             if (value >= 0) {
-                res[num].quantity = Number(value) + 1;
+                newUpdate[0].quantity = Number(value) + 1;
                 setPlace(res);
 
-                await axios.patch(`http://localhost:3000/cartPlace/${id}`, {
+                await axios.patch(`${Base_url}cart/info/${id}`, {
                     quantity: value + 1
-                });
+                })
+                    .catch(err => console.log(err));
             }
         }
     };
 
     const DeleteCard2 = async (id) => {
-        let newdata = place.filter((item) => item.id !== id);
+
+        let newdata = place.filter((item) => item._id !== id);
         setPlace(newdata);
 
-        await axios.delete(`http://localhost:3000/cartPlace/${id}`)
+        await axios.delete(`${Base_url}cart/info/${id}`)
     }
 
 
@@ -168,7 +174,7 @@ const CartPage = () => {
 
 
     return (
-        <StrictMode>
+        <>
 
             <div className="container-fluid s cartpage" >
                 <div className="row">
@@ -206,7 +212,7 @@ const CartPage = () => {
                                                     </div>
 
                                                     <div className="col-1">
-                                                        <img src="MainPageAsset/10003.svg" alt="Location"  onClick={()=>hiding()} />
+                                                        <img src="MainPageAsset/10003.svg" alt="Location" onClick={() => hiding()} />
                                                     </div>
 
                                                 </div>
@@ -215,7 +221,7 @@ const CartPage = () => {
                                                 {
                                                     showdrop &&
                                                     <div className="col-12 py-2 hiddencol">
-                                                        <div className="col-12" onClick={()=>hiding()}>
+                                                        <div className="col-12" onClick={() => hiding()}>
                                                             <p>Pune</p>
                                                             <p>Baner</p>
                                                             <p>Moshi</p>
@@ -249,18 +255,38 @@ const CartPage = () => {
 
 
                             {/* section 3 */}
-                            <div className="col-sm-2 col-5 sec3 ms-auto me-sm-1 me-3 px-2  ">
-                                <div className="row">
+                            {/* {
+                                isLogin ?
+                                    (
+                                        <div className="col-md-3 col-8 ms-auto part2">
+                                            <div className="col-12 ms-auto">
+                                                <div className="row">
+                                                    <NavLink to={`/profile/${userId}`}>
+                                                        <div className="col-2 ms-auto">
+                                                            <img src="https://cdn.pixabay.com/photo/2024/03/08/19/58/ai-generated-8621512_1280.jpg" alt="" className="d-block w-100 rounded-pill" />
+                                                        </div>
+                                                    </NavLink>
+                                                </div>
+                                            </div>
+                                        </div>
 
-                                    <div className="col-sm-5 col-6 m-sm-auto fw-bold px-0 text-center pt-3">
-                                        <p onClick={() => sethide({ login: true })} className=' p1'>Log in</p>
-                                    </div>
+                                    ) :
+                                    (
+                                        <div className="col-5">
 
-                                    <div className="col-sm-5 col-6 fw-bold px-0 m-sm-auto text-center  pt-3">
-                                        <p onClick={() => sethide({ sign: true })} className='p1'>Sign Up</p>
-                                    </div>
-                                </div>
-                            </div>
+                                            <div className="row">
+
+                                                <div className="col-md-6 col-3">
+                                                    <p onClick={() => sethide({ login: true })} className="p1">Log in</p>
+                                                </div>
+
+                                                <div className="col-md-6 col-3">
+                                                    <p onClick={() => sethide({ sign: true })} className="p1">Sign Up</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )
+                            } */}
 
 
 
@@ -333,11 +359,9 @@ const CartPage = () => {
                             <div className=" col-sm-11 m-auto col-12 sec1 py-2 px-sm-1 px-2">
 
                                 {
-                                    food.map((val) => {
-
-
+                                    food.map((val, index) => {
                                         return (
-                                            <div className="row px-sm-3 px-2 mb-4 cards pt-3">
+                                            <div className="row px-sm-3 px-2 mb-4 cards pt-3" key={index}>
 
                                                 {/* part 1 */}
                                                 <div className="col-sm-2 col-4 part1">
@@ -350,7 +374,7 @@ const CartPage = () => {
                                                     <p className='p1 mb-2'>{val.title}</p>
 
                                                     <p className='h5 mt-sm-2 mt-0'>
-                                                        <span class="badge bg-success">{val.star}</span>
+                                                        <span class="badge bg-success">{val.star} <i className="bi bi-star-fill"></i></span>
                                                     </p>
                                                     <div className="col-sm-12 m-auto">
                                                         <div className="row">
@@ -360,13 +384,13 @@ const CartPage = () => {
                                                                         <div className="row text-center">
 
                                                                             <div className="col-4 flex-karo">
-                                                                                <p onClick={() => Decrease(val.id)}>-</p>
+                                                                                <p onClick={() => Decrease(val._id)}>-</p>
                                                                             </div>
                                                                             <div className="col-4 flex-karo">
                                                                                 <p>{val.quantity}</p>
                                                                             </div>
                                                                             <div className="col-4 flex-karo">
-                                                                                <p onClick={() => Increase(val.id)}>+</p>
+                                                                                <p onClick={() => Increase(val._id)}>+</p>
                                                                             </div>
 
                                                                         </div>
@@ -375,7 +399,7 @@ const CartPage = () => {
                                                             </div>
 
                                                             <div className="col-2">
-                                                                <img src="delete.png" alt="" className='d-block w-100' onClick={() => DeleteCard1(val.id)} />
+                                                                <img src="delete.png" alt="" className='d-block w-100' onClick={() => DeleteCard1(val._id)} />
                                                             </div>
 
                                                         </div>
@@ -416,12 +440,12 @@ const CartPage = () => {
                             <div className=" col-sm-11 col-12 m-auto sec1 py-2 px-sm-1 px-2">
 
                                 {
-                                    place.map((val) => {
+                                    place.map((val , index) => {
 
 
 
                                         return (
-                                            <div className="row px-sm-3 px-2 mb-4 cards pt-3">
+                                            <div className="row px-sm-3 px-2 mb-4 cards pt-3" key={index}>
 
                                                 {/* part 1 */}
                                                 <div className="col-sm-2 col-4 part1">
@@ -434,7 +458,7 @@ const CartPage = () => {
                                                     <p className='p1 mb-2'>{val.title}</p>
 
                                                     <p className='h5 mt-sm-2 mt-0'>
-                                                        <span class="badge bg-success">{val.star}</span>
+                                                        <span class="badge bg-success">{val.star} <i className="bi bi-star-fill"></i></span>
                                                     </p>
 
                                                     <div className="col-11 m-auto">
@@ -445,13 +469,13 @@ const CartPage = () => {
                                                                         <div className="row text-center">
 
                                                                             <div className="col-4 flex-karo">
-                                                                                <p onClick={() => DecreaseP(val.id)}  className='p1'>-</p>
+                                                                                <p onClick={() => DecreaseP(val._id)} className='p1'>-</p>
                                                                             </div>
                                                                             <div className="col-4 flex-karo">
                                                                                 <p>{val.quantity}</p>
                                                                             </div>
                                                                             <div className="col-4 flex-karo">
-                                                                                <p onClick={() => IncreaseP(val.id)}  className='p1'>+</p>
+                                                                                <p onClick={() => IncreaseP(val._id)} className='p1'>+</p>
                                                                             </div>
 
                                                                         </div>
@@ -460,7 +484,7 @@ const CartPage = () => {
                                                             </div>
 
                                                             <div className="col-2">
-                                                                <img src="delete.png" alt="" className='d-block w-100' onClick={() => DeleteCard2(val.id)} />
+                                                                <img src="delete.png" alt="" className='d-block w-100' onClick={() => DeleteCard2(val._id)} />
                                                             </div>
 
                                                         </div>
@@ -508,7 +532,7 @@ const CartPage = () => {
                 )
             }
 
-        </StrictMode>
+        </>
     )
 }
 

@@ -9,7 +9,7 @@ const S1Card = ({ path, title, p , web }) => {
 
 
     return (
-        <StrictMode>
+        <>
 
             <div className="col-md-4 col-sm-6 col-10 m-auto my-3">
                 <NavLink to={web} className="nav-link">
@@ -31,7 +31,7 @@ const S1Card = ({ path, title, p , web }) => {
 
 
 
-        </StrictMode>
+        </>
     )
 }
 

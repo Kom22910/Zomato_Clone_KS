@@ -1,5 +1,5 @@
 
-import React, { StrictMode, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './food.css';
 import LoginPage from './LoginPage';
 import SignUpPage from './SignUpPage';
@@ -8,8 +8,9 @@ import FooterSec from './FooterSec';
 import { NavLink } from 'react-router-dom';
 import Section2 from './Section2';
 import axios from 'axios';
-import AddMoreProductForm from './AddMoreProductForm';
 import AddMorePlacesForm from './AddMorePlacesForm';
+import { useAuth } from './Auth.jsx';
+const Base_url = process.env.REACT_APP_BACKEND_URL;
 
 
 
@@ -21,464 +22,35 @@ const PlacesPage = () => {
     }
     const [show, sethide] = useState(show_page);
 
+    const {isLogin ,  userId} = useAuth();
 
 
+    const AddtoCart = async (id) => {
+        try {
 
-    // const cardinfo2 = [
-    //     {
-    //         id: 1,
-    //         promo: <p className='promotion'>Promoted</p>,
-    //         path: "PlaceAsset/10006.webp",
-    //         w: 100,
-    //         h: 100,
-    //         offer: <div className="rate px-3">
-    //             <p>&#8377;Flat 50% OFF</p>
-    //         </div>,
+            setLoading(true);
 
-    //         title: "Crazy Cheesy",
-    //         star: 4.3,
-    //         p1: "Chinese, Salad, North Indian",
-    //         p2: "Senapati Bapat Road, Pune",
-    //         price: "1,800",
-    //         minute: 3.2
-    //     },
-    //     {
-    //         id: 2,
-    //         path: "PlaceAsset/10007.webp",
-    //         w: 100,
-    //         h: 100,
-    //         offer: null,
+            let newData = data.filter((item) => {
+                return item._id === id
+            });
 
-    //         title: "FC Road Social",
-    //         star: 4.1,
-    //         p1: "North Indian, Biryani, Pizza, St ",
-    //         p2: "Shivaji Nagar, Pune",
-    //         price: "1,500",
-    //         minute: 1.7
-    //     },
+            await axios.post(`${Base_url}cart/info`, newData[0])
+                .then(r => {
+                    alert(r.data.Message);
+                    setLoading(false);
+                })
+                .catch(err => {
+                    alert(err);
+                    console.log(err);
+                    setLoading(false)
+                })
 
-    //     {
-    //         id: 3,
-    //         promo: <p className='promotion'>Promoted</p>,
-    //         path: "PlaceAsset/10008.webp",
-    //         w: 150,
-    //         h: 100,
-    //         offer: <div className="rate px-3">
-    //             <p>&#8377;Flat 50% OFF</p>
-    //         </div>,
-    //         title: "Plunge",
-    //         star: 4.3,
-    //         p1: "Bar Food, North Indian, Chines ",
-    //         p2: "Koregaon Park, Pune",
-    //         price: "2,500",
-    //         minute: 2.7
-    //     },
-    //     {
-    //         id: 4,
-    //         promo: <p className='promotion'>Promoted</p>,
-    //         path: "PlaceAsset/10009.webp",
-    //         w: 150,
-    //         h: 100,
-    //         offer: <div className="rate px-3">
-    //             <p>&#8377;Flat 20% OFF</p>
-    //         </div>,
-    //         title: "The Game Palacio",
-    //         star: 4.5,
-    //         p1: "Pizza, Sushi, Asian, Italian ",
-    //         p2: "The Mills, Bund Garden Road, Pune",
-    //         price: "1,400",
-    //         minute: 1.9
-    //     },
-    //     {
-    //         id: 5,
-    //         promo: <p className='promotion'>Promoted</p>,
-    //         path: "PlaceAsset/10010.webp",
-    //         w: 150,
-    //         h: 100,
-    //         offer: <div className="rate px-3">
-    //             <p>&#8377;Flat 10% OFF</p>
-    //         </div>,
-    //         title: "Persian Darbar",
-    //         star: 4.4,
-    //         p1: "Pizza, Sushi, Asian, Italian ",
-    //         p2: "Camp Area, Pune",
-    //         price: "1,200",
-    //         minute: 1.8
-    //     },
-    //     {
-    //         id: 6,
-    //         promo: <p className='promotion'>Promoted</p>,
-    //         path: "PlaceAsset/10011.webp",
-    //         w: 150,
-    //         h: 100,
-    //         offer: <div className="rate px-3">
-    //             <p>&#8377;Flat 25% OFF</p>
-    //         </div>,
-    //         title: "Feast - Sheraton Grand",
-    //         star: 4.3,
-    //         p1: "Pizza, Sushi, Asian, Italian ",
-    //         p2: "Sheraton Grand, Bund Garden Road, Pune",
-    //         price: "1,000",
-    //         minute: 1.8
-    //     },
-    //     {
-    //         id: 7,
-    //         promo: <p className='promotion'>Promoted</p>,
-    //         path: "PlaceAsset/10012.webp",
-    //         w: 100,
-    //         h: 100,
-    //         offer: <div className="rate px-3">
-    //             <p>&#8377;Flat 15% OFF</p>
-    //         </div>,
-    //         title: "Millers - The Luxury Club",
-    //         star: 4.3,
-    //         p1: "Pizza, Sushi, Asian, Italian ",
-    //         p2: "Sheraton Grand, Bund Garden Road, Pune",
-    //         price: "1,000",
-    //         minute: 2
-    //     },
-    //     {
-    //         id: 8,
-    //         promo: <p className='promotion'>Promoted</p>,
-    //         path: "PlaceAsset/10013.webp",
-    //         w: 100,
-    //         h: 100,
-    //         offer: <div className="rate px-3">
-    //             <p>&#8377;Flat 10% OFF</p>
-    //         </div>,
-    //         title: "Mamagoto",
-    //         star: 4.3,
-    //         p1: "Pizza, Sushi, Asian, Italian ",
-    //         p2: "The Pavillion, Senapati Bapat Road, Pu",
-    //         price: "1,200",
-    //         minute: 2
-    //     },
-    //     {
-    //         id: 9,
-    //         promo: <p className='promotion'>Promoted</p>,
-    //         path: "PlaceAsset/10014.webp",
-    //         w: 100,
-    //         h: 100,
-    //         offer: <div className="rate px-3">
-    //             <p>&#8377;Flat 10% OFF</p>
-    //         </div>,
-    //         title: "Ventana",
-    //         star: 4.5,
-    //         p1: "Pizza, Sushi, Asian, Italian ",
-    //         p2: "The Pavillion, Senapati Bapat Road, Pu",
-    //         price: "1,200",
-    //         minute: 7
-    //     },
-    //     {
-    //         id: 10,
-    //         promo: <p className='promotion'>Promoted</p>,
-    //         path: "PlaceAsset/10015.webp",
-    //         w: 100,
-    //         h: 100,
-    //         offer: null,
-    //         title: "2BHK Diner & Key Club",
-    //         star: 4.3,
-    //         p1: "Pizza, Sushi, Asian, Italian ",
-    //         p2: "The Pavillion, Senapati Bapat Road, Pu",
-    //         price: "3,000",
-    //         minute: 2
-    //     },
-    //     {
-    //         id: 11,
-    //         promo: <p className='promotion'>Promoted</p>,
-    //         path: "PlaceAsset/10016.webp",
-    //         w: 100,
-    //         h: 100,
-    //         offer: <div className="rate px-3">
-    //             <p>&#8377;Flat 30% OFF</p>
-    //         </div>,
-    //         title: "Fountain House",
-    //         star: 4.2,
-    //         p1: "Pizza, Sushi, Asian, Italian ",
-    //         p2: "Shivaji Nagar, Pune",
-    //         price: "900",
-    //         minute: 3
-    //     },
-    //     {
-    //         id: 12,
-    //         promo: <p className='promotion'>Promoted</p>,
-    //         path: "PlaceAsset/10017.webp",
-    //         w: 100,
-    //         h: 100,
-    //         offer: <div className="rate px-3">
-    //             <p>&#8377;Flat 30% OFF</p>
-    //         </div>,
-    //         title: "Hakuna Matata",
-    //         star: 4.2,
-    //         p1: "Pizza, Sushi, Asian, Italian ",
-    //         p2: "Shivaji Nagar, Pune",
-    //         price: "1,900",
-    //         minute: 1.2
-    //     },
-    //     {
-    //         id: 13,
-    //         promo: <p className='promotion'>Promoted</p>,
-    //         path: "PlaceAsset/10017.webp",
-    //         w: 100,
-    //         h: 100,
-    //         offer: <div className="rate px-3">
-    //             <p>&#8377;Flat 30% OFF</p>
-    //         </div>,
-    //         title: "Hakuna Matata",
-    //         star: 4.2,
-    //         p1: "Pizza, Sushi, Asian, Italian ",
-    //         p2: "Shivaji Nagar, Pune",
-    //         price: "1,900",
-    //         minute: 1.2
-    //     },
-    //     {
-    //         id: 14,
-    //         promo: <p className='promotion'>Promoted</p>,
-    //         path: "PlaceAsset/10018.webp",
-    //         w: 100,
-    //         h: 100,
-    //         offer: <div className="rate px-3">
-    //             <p>&#8377;Flat 30% OFF</p>
-    //         </div>,
-    //         title: "360 Degree - The Revolving Fine",
-    //         star: 4.0,
-    //         p1: "Pizza, Sushi, Asian, Italian ",
-    //         p2: "Shivaji Nagar, Pune",
-    //         price: "1,400",
-    //         minute: 1.9
-    //     },
-    //     {
-    //         id: 15,
-    //         promo: <p className='promotion'>Promoted</p>,
-    //         path: "PlaceAsset/10019.webp",
-    //         w: 100,
-    //         h: 100,
-    //         offer: <div className="rate px-3">
-    //             <p>&#8377;Flat 25% OFF</p>
-    //         </div>,
-    //         title: "AMBARSARIYA - Authentic Am",
-    //         star: 4.6,
-    //         p1: "Pizza, Sushi, Asian, Italian ",
-    //         p2: "Shivaji Nagar, Pune",
-    //         price: "1,000",
-    //         minute: 2.7
-    //     },
+        }
+        catch (err) {
+            alert(err);
+            console.log(err);
 
-    //     {
-    //         id: 16,
-    //         promo: <p className='promotion'>Promoted</p>,
-    //         path: "PlaceAsset/10020.webp",
-    //         w: 100,
-    //         h: 100,
-    //         offer: <div className="rate px-3">
-    //             <p>&#8377;Flat 15% OFF</p>
-    //         </div>,
-    //         title: "Addah - The O Hotel",
-    //         star: 4.2,
-    //         p1: "Pizza, Sushi, Asian, Italian ",
-    //         p2: "Shivaji Nagar, Pune",
-    //         price: "3,000",
-    //         minute: 2.9
-    //     },
-    //     {
-    //         id: 17,
-    //         promo: <p className='promotion'>Promoted</p>,
-    //         path: "PlaceAsset/10021.webp",
-    //         w: 100,
-    //         h: 100,
-    //         offer: <div className="rate px-3">
-    //             <p>&#8377;Flat 10% OFF</p>
-    //         </div>,
-    //         title: "Ava Artisan Kitchen & Bar",
-    //         star: 4.2,
-    //         p1: "Pizza, Sushi, Asian, Italian ",
-    //         p2: "Shivaji Nagar, Pune",
-    //         price: "3,000",
-    //         minute: 2.9
-    //     },
-    //     {
-    //         id: 18,
-    //         promo: <p className='promotion'>Promoted</p>,
-    //         path: "PlaceAsset/10022.webp",
-    //         w: 100,
-    //         h: 100,
-    //         offer: <div className="rate px-3">
-    //             <p>Flat 40% OFF</p>
-    //         </div>,
-    //         title: "Ava Artisan Kitchen & Bar",
-    //         star: 4.2,
-    //         p1: "Pizza, Sushi, Asian, Italian ",
-    //         p2: "Shivaji Nagar, Pune",
-    //         price: "3,000",
-    //         minute: 2.9
-    //     },
-    //     {
-    //         id: 19,
-    //         promo: <p className='promotion'>Promoted</p>,
-    //         path: "PlaceAsset/10023.webp",
-    //         w: 100,
-    //         h: 100,
-    //         offer: <div className="rate px-3">
-    //             <p>Flat 40% OFF</p>
-    //         </div>,
-    //         title: "Mask Club",
-    //         star: 4.2,
-    //         p1: "Pizza, Sushi, Asian, Italian ",
-    //         p2: "Shivaji Nagar, Pune",
-    //         price: "3,000",
-    //         minute: 2.9
-    //     },
-    //     {
-    //         id: 20,
-    //         promo: <p className='promotion'>Promoted</p>,
-    //         path: "PlaceAsset/10024.webp",
-    //         w: 100,
-    //         h: 100,
-    //         offer: <div className="rate px-3">
-    //             <p>Flat 20% OFF</p>
-    //         </div>,
-    //         title: "Cherie",
-    //         star: 4.2,
-    //         p1: "Pizza, Sushi, Asian, Italian ",
-    //         p2: "Shivaji Nagar, Pune",
-    //         price: "3,000",
-    //         minute: 2.9
-    //     },
-    //     {
-    //         id: 21,
-    //         promo: <p className='promotion'>Promoted</p>,
-    //         path: "PlaceAsset/10025.webp",
-    //         w: 100,
-    //         h: 100,
-    //         offer: <div className="rate px-3">
-    //             <p>Flat 10% OFF</p>
-    //         </div>,
-    //         title: "High Garden",
-    //         star: 4.2,
-    //         p1: "Pizza, Sushi, Asian, Italian ",
-    //         p2: "Shivaji Nagar, Pune",
-    //         price: "3,000",
-    //         minute: 2.9
-    //     },
-    //     {
-    //         id: 22,
-    //         promo: <p className='promotion'>Promoted</p>,
-    //         path: "PlaceAsset/10026.webp",
-    //         w: 100,
-    //         h: 100,
-    //         offer: <div className="rate px-3">
-    //             <p>Flat 10% OFF</p>
-    //         </div>,
-    //         title: "Klinq - Cocktails & Cuisinen",
-    //         star: 4.2,
-    //         p1: "Pizza, Sushi, Asian, Italian ",
-    //         p2: "Shivaji Nagar, Pune",
-    //         price: "3,000",
-    //         minute: 2.9
-    //     },
-    //     {
-    //         id: 23,
-    //         promo: <p className='promotion'>Promoted</p>,
-    //         path: "PlaceAsset/10033.webp",
-    //         w: 100,
-    //         h: 100,
-    //         offer: <div className="rate px-3">
-    //             <p>Flat 30% OFF</p>
-    //         </div>,
-    //         title: "Publiq",
-    //         star: 4.1,
-    //         p1: "Pizza, Sushi, Asian, Italian ",
-    //         p2: "Shivaji Nagar, Pune",
-    //         price: "3,000",
-    //         minute: 2.8
-    //     },
-    //     {
-    //         id: 24,
-    //         promo: <p className='promotion'>Promoted</p>,
-    //         path: "PlaceAsset/10040.webp",
-    //         w: 100,
-    //         h: 100,
-    //         offer: <div className="rate px-3">
-    //             <p>Flat 10% OFF</p>
-    //         </div>,
-    //         title: "Heads Up Rooftop Bar",
-    //         star: 4.1,
-    //         p1: "Pizza, Sushi, Asian, Italian ",
-    //         p2: "Shivaji Nagar, Pune",
-    //         price: "3,000",
-    //         minute: 2.8
-    //     },
-    //     {
-    //         id: 25,
-    //         promo: <p className='promotion'>Promoted</p>,
-    //         path: "PlaceAsset/10041.webp",
-    //         w: 100,
-    //         h: 100,
-    //         offer: <div className="rate px-3">
-    //             <p>Flat 10% OFF</p>
-    //         </div>,
-    //         title: "Heads Up Rooftop Bar",
-    //         star: 4.1,
-    //         p1: "Pizza, Sushi, Asian, Italian ",
-    //         p2: "Shivaji Nagar, Pune",
-    //         price: "3,000",
-    //         minute: 2.8
-    //     },
-    //     {
-    //         id: 26,
-    //         promo: <p className='promotion'>Promoted</p>,
-    //         path: "PlaceAsset/10042.webp",
-    //         w: 100,
-    //         h: 100,
-    //         offer: <div className="rate px-3">
-    //             <p>Flat 25% OFF</p>
-    //         </div>,
-    //         title: "Akasa Poolbar & Kitchen",
-    //         star: 4.1,
-    //         p1: "Pizza, Sushi, Asian, Italian ",
-    //         p2: "Shivaji Nagar, Pune",
-    //         price: "3,000",
-    //         minute: 2.8
-    //     },
-    //     {
-    //         id: 27,
-    //         promo: <p className='promotion'>Promoted</p>,
-    //         path: "PlaceAsset/10043.webp",
-    //         w: 100,
-    //         h: 100,
-    //         offer: <div className="rate px-3">
-    //             <p>Flat 25% OFF</p>
-    //         </div>,
-    //         title: "CHA",
-    //         star: 4.1,
-    //         p1: "Pizza, Sushi, Asian, Italian ",
-    //         p2: "Shivaji Nagar, Pune",
-    //         price: "3,000",
-    //         minute: 2.8
-    //     },
-
-
-
-
-    // ]
-
-
-    const FetchPlaceData = async (id) => {
-        let res = await axios.get(`http://localhost:3000/placeCard/${id}`);
-        let data = res.data;
-
-
-        axios.post("http://localhost:3000/cartPlace", data)
-            .then((res) => {
-                setTimeout(() => {
-                    setModal({success:true , warning:false});
-                }, 100)
-            })
-            .catch((error) => {
-                setTimeout(() => {
-                    setModal({success:false , warning:true});
-                }, 100)
-            })
+        }
     }
 
 
@@ -489,14 +61,15 @@ const PlacesPage = () => {
     const [data, setData] = useState([]);
 
 
-    const FetchWholePlaceData = async () => {
-        let res = await axios.get("http://localhost:3000/placeCard");
-        setData(res.data);
+
+
+    const [loading, setLoading] = useState(false);
+
+
+    const stillLoading = (s) => {
+        s === true ? setLoading(true) : setLoading(false)
     }
 
-    useEffect(() => {
-        FetchWholePlaceData();
-    }, [addmore])
 
 
 
@@ -517,8 +90,60 @@ const PlacesPage = () => {
     });
 
 
+
+
+    // ************************************** 
+
+    // fetching data 
+    const FetchWholePlaceData = async () => {
+        try {
+            setLoading(true)
+            let res = await axios.get(`${Base_url}place/get`)
+            setData(res.data.Data);
+        }
+        catch (err) {
+            console.log(err);
+        }
+        finally {
+            setLoading(false);
+        }
+    }
+
+    // ****
+
+    const [showprofile, setHideProfile] = useState(false);
+    const FetchLoginShow = () => {
+        // let res = await axios.get("http://localhost:3000/Login")
+        // .catch(err=> console.log(err))
+        setHideProfile(true)
+    }
+
+
+
+    useEffect(() => {
+        FetchWholePlaceData();
+        FetchLoginShow();
+        // FetchId();
+    }, [addmore, showprofile])
+
+
+
+
+
+
+
+
     return (
-        <StrictMode>
+        <>
+
+            {
+                loading &&
+                <div className="col-12 loading">
+                    <div class="spinner-border text-danger" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+            }
 
             <div className="container-fluid">
                 <div className="row">
@@ -595,18 +220,42 @@ const PlacesPage = () => {
 
 
                             {/* section 3 */}
-                            <div className="col-sm-3 col-4 sec3 ms-auto me-sm-0 me-3 px-2">
-                                <div className="row">
 
-                                    <div className="col-sm-5 col-6 m-sm-auto fw-bold px-0 text-center pt-3">
-                                        <p onClick={() => sethide({ login: true })} className='py-2 p1'>Log in</p>
-                                    </div>
+                            {/* {
 
-                                    <div className="col-sm-5 col-6 fw-bold px-0 m-sm-auto text-center  pt-3">
-                                        <p onClick={() => sethide({ sign: true })} className='p1'>Sign Up</p>
-                                    </div>
-                                </div>
-                            </div>
+                                isLogin ?
+                                    (
+                                        <div className="col-3  ms-auto p-0 profile py-2">
+                                            <div className="col-12 ms-auto">
+                                                <div className="row">
+                                                    <NavLink to={`/profile/${userId}`}>
+                                                        <div className="col-2 ms-auto">
+                                                            <img src="https://cdn.pixabay.com/photo/2024/03/08/19/58/ai-generated-8621512_1280.jpg" alt="" className="d-block w-100 rounded-pill" />
+                                                        </div>
+                                                    </NavLink>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    ) :
+                                    (
+                                        <div className="col-sm-3 col-4 sec3 ms-auto me-sm-0 me-3 px-2">
+                                            <div className="row">
+
+                                                <div className="col-sm-5 col-6 m-sm-auto fw-bold px-0 text-center pt-3">
+                                                    <p onClick={() => sethide({ login: true })} className='py-2 p1'>Log in</p>
+                                                </div>
+
+                                                <div className="col-sm-5 col-6 fw-bold px-0 m-sm-auto text-center  pt-3">
+                                                    <p onClick={() => sethide({ sign: true })} className='p1'>Sign Up</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )
+                            } */}
+
+
+
 
 
                             {/* section 4 */}
@@ -696,6 +345,7 @@ const PlacesPage = () => {
 
 
                                     {
+                                        data &&
                                         data.map((val) => {
 
                                             return (
@@ -753,7 +403,7 @@ const PlacesPage = () => {
 
                                                             {/* *********************************************** */}
                                                             <div className="col-12">
-                                                                <button className='btn btn-warning w-100 addtocart' onClick={() => FetchPlaceData(val.id)} >Add to Cart</button>
+                                                                <button className='btn btn-warning w-100 addtocart' onClick={() => AddtoCart(val._id)} >Add to Cart</button>
                                                             </div>
 
 
@@ -829,6 +479,7 @@ const PlacesPage = () => {
                 addmore && (
                     <AddMorePlacesForm
                         close={() => setAddmore(false)}
+                        fun={stillLoading}
                     />
                 )
             }
@@ -921,7 +572,7 @@ const PlacesPage = () => {
 
 
 
-        </StrictMode>
+        </>
     )
 }
 

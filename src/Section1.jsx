@@ -40,7 +40,7 @@ const Section1 = () => {
 
 
     return (
-        <StrictMode>
+        <>
 
 
             <div className="col-12 section1 my-5">
@@ -67,7 +67,7 @@ const Section1 = () => {
 
 
 
-        </StrictMode>
+        </>
     )
 }
 

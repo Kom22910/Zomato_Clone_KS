@@ -1,7 +1,10 @@
-import { StrictMode, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import Sec3Card from "./Sec3Card";
 import axios from 'axios';
 import {useNavigate} from 'react-router-dom';
+
+
+const Base_url = process.env.REACT_APP_BACKEND_URL;
 
 
 
@@ -212,13 +215,13 @@ const Section3 = () => {
     const name_path = {
         state: true,
         name: "More",
-        path: <i class="bi bi-chevron-down"></i>
+        path: <i className="bi bi-chevron-down"></i>
     }
 
     const name_path2 = {
         state: false,
         name: "Less",
-        path: <i class="bi bi-chevron-up"></i>
+        path: <i className="bi bi-chevron-up"></i>
     }
 
     const [card, setCard] = useState(cardInfo1);
@@ -257,20 +260,12 @@ const Section3 = () => {
     const funny = (d) => {
         setHidework(true);
         abc(d);
-        // let num = 50;
-        // setInterval(() => {
-        //     num = num - 1;
-        //     if (mystyle.right !== '0vw') {
-        //         setStyle({right:`-${num}vw`})
-        //     }
-        // }, 5);
-
     }
 
 
     const FetchFoodData = async () => {
-        let res = await axios.get("http://localhost:3000/foodCard");
-        setfood(res.data);
+        let res = await axios.get(`${Base_url}food/get`);
+        setfood(res.data.Data);
     }
 
     useEffect(() => {
@@ -280,7 +275,7 @@ const Section3 = () => {
 
 
     return (
-        <StrictMode>
+        <>
 
             <div className="col-12 mt-5 section3 ">
                 <div className="row">
@@ -402,7 +397,7 @@ const Section3 = () => {
 
 
 
-        </StrictMode>
+        </>
     )
 }
 

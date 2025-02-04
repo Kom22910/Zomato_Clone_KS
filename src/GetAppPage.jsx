@@ -1,10 +1,11 @@
-import { StrictMode, useState } from "react";
+import { useState } from "react";
 import './RestPage.css';
 import Section4 from "./Section4";
 import FooterSec from "./FooterSec";
 import { NavLink } from "react-router-dom";
 import LoginPage from "./LoginPage";
 import SignUpPage from "./SignUpPage";
+import { useAuth } from "./Auth.jsx";
 
 
 const GetAppPage = () => {
@@ -14,11 +15,25 @@ const GetAppPage = () => {
         sign: false
     }
 
+
+    const {isLogin , userId} = useAuth();
+
     const [show, sethide] = useState(show_page);
 
 
+
+
+
+    // **************************************
+
+
+
+
+    // ****************************************
+
+
     return (
-        <StrictMode>
+        <>
 
             <div className="col-12 getapp pt-3">
 
@@ -34,25 +49,55 @@ const GetAppPage = () => {
                             <div className="col-sm-6 col-4 pt-md-1 pt-2">
                                 <div className="col-sm-3 col-10 ms-auto ">
                                     <NavLink to="/">
-                                        <img src="MainPageAsset/10028.webp" alt="Zomato" className="d-block w-100" />
+                                        <img src="MainPageAsset/10028.webp" alt="Zomato" className="d-block w-100 img1" />
                                     </NavLink>
                                 </div>
                             </div>
 
+
+
+
+
+
                             {/* part2 */}
-                            <div className="col-sm-3 col-8 m-sm-auto ms-auto part2">
-                                <div className="row">
 
-                                    <div className="col-sm-4 col-6 text-sm-center text-end">
-                                        <p className="btn fs-sm-5 fw-bold w-sm-100 text-center" onClick={() => sethide({ login: true })}>Log in</p>
-                                    </div>
+                            {/* {
+                                isLogin ?
+                                    (
+                                        <div className="col-3 m-auto p-0 profile py-2">
+                                            <div className="col-10 m-auto">
+                                                <div className="row">
+                                                    <NavLink to={`/profile/${userId}`}>
+                                                        <div className="col-2 ms-auto">
+                                                            <img src="https://cdn.pixabay.com/photo/2024/03/08/19/58/ai-generated-8621512_1280.jpg" alt="" className="d-block w-100 rounded-pill" />
+                                                        </div>
+                                                    </NavLink>
+                                                </div>
+                                            </div>
+                                        </div>
 
-                                    <div className="col-sm-4 col-6 text-sm-center text-start">
-                                        <p className="btn w-sm-100 fs-sm-5 fw-bold" onClick={() => sethide({ sign: true })}>Sign Up</p>
-                                    </div>
+                                    ) :
+                                    (
 
-                                </div>
-                            </div>
+                                        <div className="col-sm-3 col-8 m-sm-auto ms-auto part2">
+                                            <div className="row">
+                                                <div className="col-sm-4 col-6 text-sm-center text-end">
+                                                    <p className="btn fs-sm-5 fw-bold w-sm-100 text-center" onClick={() => sethide({ login: true })}>Log in</p>
+                                                </div>
+
+                                                <div className="col-sm-4 col-6 text-sm-center text-start">
+                                                    <p className="btn w-sm-100 fs-sm-5 fw-bold" onClick={() => sethide({ sign: true })}>Sign Up</p>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    )
+                            } */}
+
+
+
+
+
                         </div>
 
                     </div>
@@ -88,7 +133,7 @@ const GetAppPage = () => {
 
             </div>
 
-        </StrictMode>
+        </>
     )
 }
 
