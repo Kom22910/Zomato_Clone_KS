@@ -461,14 +461,14 @@ const PlacesPage = () => {
 
 
 
-            {
+            {/* {
                 addmore && (
                     <AddMorePlacesForm
                         close={() => setAddmore(false)}
                         fun={stillLoading}
                     />
                 )
-            }
+            } */}
 
 
 

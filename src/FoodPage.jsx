@@ -571,14 +571,14 @@ const FoodPage = () => {
 
 
 
-            {
+            {/* {
                 addmore && (
                     <AddMoreProductForm
                         close={() => setAddmore(false)}
                         fun={stillLoading}
                     />
                 )
-            }
+            } */}
 
 
 
