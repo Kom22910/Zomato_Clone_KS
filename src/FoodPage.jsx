@@ -444,15 +444,13 @@ const FoodPage = () => {
                                 {/* 1 - cards  */}
                                 <div className="row px-sm-3">
 
-
-
                                     {/* cards */}
 
                                     {
-                                        data.map((val) => {
+                                        data.map((val , index) => {
 
                                             return (
-                                                <div className="col-sm-4 col-10 m-sm-0  m-auto p-sm-3 my-sm-0 my-3" key={val.id}   >
+                                                <div className="col-sm-4 col-10 m-sm-0  m-auto p-sm-3 my-sm-0 my-3" key={index}   >
                                                     <div className="col-12 card_part">
 
                                                         {/* card part 1 */}

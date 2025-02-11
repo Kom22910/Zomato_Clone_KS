@@ -8,6 +8,7 @@ import React, { useState } from 'react';
 const Base_url = process.env.REACT_APP_BACKEND_URL;
 
 
+
 const AddMoreProductForm = ({ close, fun }) => {
     const [data, setData] = useState({
         title: "",
@@ -22,7 +23,6 @@ const AddMoreProductForm = ({ close, fun }) => {
 
 
     const [File, setFile] = useState("");
-
 
 
     const ChangeFile = (e) => {
@@ -57,7 +57,7 @@ const AddMoreProductForm = ({ close, fun }) => {
 
         fun(true);
 
-        await axios.post(`${Base_url}/food/add`, formData, {
+        await axios.post(`${Base_url}/food/add-data`, formData, {
             headers: {
                 'Content-Type': 'multipart/form-data'
             }
@@ -124,7 +124,7 @@ const AddMoreProductForm = ({ close, fun }) => {
                                 <div className="col-12 sec1 my-sm-4 my-2">
                                     <div className="form-group">
                                         <label className='fw-bold'>Insert Food Image : </label>
-                                        <input type="file" placeholder='Url' className='form-control' onChange={(e) => ChangeFile(e)} />
+                                        <input type="file" placeholder='Url' className='form-control' name='avatar' onChange={(e) => ChangeFile(e)} />
                                     </div>
                                 </div>
 

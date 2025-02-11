@@ -5,7 +5,6 @@ import LoginPage from "./LoginPage";
 import SignUpPage from "./SignUpPage";
 
 import { useAuth } from "./Auth.jsx";
-import axios from "axios";
 
 
 
@@ -22,12 +21,9 @@ const HeaderSection = () => {
 
     const [show, sethide] = useState(show_page);
 
-
-    
-
     const [showdrop, sethidedrop] = useState(false);
 
-    const { isLogin , token  , userId} = useAuth();
+    const { isLogin , userId} = useAuth();
 
     const hiding = () => {
         sethidedrop(!showdrop);
@@ -40,7 +36,6 @@ const HeaderSection = () => {
 
     const ShowName = (name, id) => {
         setHideWelcome(name);
-
         setHideProfile(true);
     }
 
@@ -51,7 +46,7 @@ const HeaderSection = () => {
 
 useEffect(()=>{
     console.log('Hello');
-} , [isLogin])
+} , [showWelcome])
 
 
 

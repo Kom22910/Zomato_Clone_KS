@@ -12,9 +12,7 @@ const Profile = () => {
 
     const { RemoveToken  , userId , RemoveUserID} = useAuth();
 
-    const token = localStorage.getItem('token');
-
-    const FetchUserData = async () => {
+    const FetchUserData = async() => {
         try {
 
             let result = await axios.get(`${Base_url}/user/${userId}`);

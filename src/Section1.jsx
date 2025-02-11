@@ -1,4 +1,3 @@
-import { StrictMode } from "react"
 import S1Card from "./S1Card";
 
 
