@@ -74,7 +74,7 @@ const AddPlaceProductForm = () => {
                 let res = await axios.post(`${Base_url}/place/add`, formData);
                 console.log(res.data);
                 alert("Successfully");
-                nav('places');
+                nav('/places');
             }
             catch (err) {
                 console.log(err);
