@@ -1,0 +1,458 @@
+.investorpage {
+    overflow-x: hidden;
+}
+
+
+
+.iheader {
+
+
+
+
+
+    .middle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+
+    .part1 {
+        .ele2 {
+            border-left: 1px solid white;
+
+            p {
+                font-size: 23px;
+                letter-spacing: 2px;
+                font-weight: 400;
+                color: white;
+            }
+        }
+    }
+
+
+    .part2 {
+
+        position: relative;
+
+        ul {
+            list-style: none;
+            display: flex;
+            justify-content: space-around;
+
+            li {
+                font-size: 20px;
+                /* background-color: aqua; */
+                letter-spacing: 1px;
+                color: white;
+            }
+
+            li:hover {
+                font-weight: 500;
+
+                i {
+                    font-size: 21px;
+                }
+            }
+        }
+
+
+        .drop {
+            position: absolute;
+            right: 7%;
+            top: 50%;
+            font-size: 16px;
+            font-weight: 400;
+            padding: 1% 4%;
+            padding-bottom: 0%;
+        }
+    }
+}
+
+
+
+.isection {
+
+
+
+    .isection1 {
+
+        .part1 {
+            p {
+                font-weight: 500;
+            }
+        }
+
+
+        .part2 {
+
+
+            .sec {
+                border-radius: 40px;
+            }
+
+
+            .p1 {
+                font-size: 18px;
+                font-weight: 500;
+            }
+
+            .card1 {
+                border: 2px solid rgba(10, 10, 10, 0.036);
+                border-radius: 20px;
+                overflow: hidden;
+
+                .ele1 {
+                    background-color: rgba(255, 0, 0, 0.08);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 12vh;
+
+                    img {
+                        width: 100%;
+                    }
+                }
+
+                .ele2 {
+                    display: flex;
+                    align-items: center;
+                    font-size: 20px;
+                    font-weight: 500;
+                }
+            }
+
+
+        }
+    }
+
+
+    .isection2 {
+        background-color: #F8F9FC;
+        padding-top: 8% !important;
+
+        .card1 {
+            border-radius: 20px;
+            padding: 1.6% 5%;
+            background-color: white;
+            box-shadow: 0px 0px 1px 1px #dadada9f;
+
+            .p1 {
+                color: rgba(0, 0, 0, 0.516);
+                font-size: 16px;
+                font-weight: 500;
+            }
+
+            .p2 {
+                height: 14vh;
+            }
+
+            .p {
+                font-size: 14px;
+                font-weight: 500;
+                color: gray;
+            }
+        }
+
+        .card2 {
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.03);
+            background-color: white;
+
+
+            .card_body {
+                height: 25vh;
+            }
+        }
+    }
+
+
+    .isection4 {
+        background-color: #F8F8F8;
+
+        .card1 {
+            overflow: hidden;
+
+            .ele1 {
+                overflow-y: hidden;
+                border-radius: 10px;
+                height: 34vh;
+                position: relative;
+
+                img {
+                    object-position: 0px -5vh;
+                }
+
+                .substitle {
+                    background-color: rgba(0, 0, 0, 0.597);
+                    color: white;
+                    position: absolute;
+                    bottom: -2%;
+                    right: 5%;
+
+                }
+
+
+
+            }
+
+            .ele2 {
+                .p1 {
+                    overflow-x: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis !important;
+                }
+            }
+        }
+    }
+
+
+    .isection5 {
+
+        .p1 {
+            font-size: 18px;
+        }
+
+        .part1 {
+
+            input {
+                border: 1px solid rgba(0, 0, 0, 0.215);
+                padding: 2% 2%;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+@media screen and (max-width:430px) and (min-width:359px) {
+    .iheader {
+
+        .part1 {
+            .ele2 {
+                border-left: 1px solid white;
+
+                p {
+                    font-size: 20px;
+                    letter-spacing: 2px;
+                    font-weight: 500;
+                    color: white;
+                }
+            }
+        }
+
+
+        .part2 {
+
+            position: relative;
+
+            ul {
+                list-style: none;
+                display: flex;
+                justify-content: space-between;
+
+                li {
+                    font-size: 9px;
+                    /* background-color: aqua; */
+                    letter-spacing: 0px;
+                    color: white;
+                    font-weight: 500;
+                   
+                    margin-right: 1%;
+                }
+
+                li:hover {
+                    font-weight: 700;
+
+                    i {
+                        font-size: 10px;
+                    }
+                }
+            }
+
+
+            .drop {
+                position: absolute;
+                right: 7%;
+                top: 50%;
+                font-size: 10px;
+                font-weight: 400;
+                padding: 1% 4%;
+                padding-bottom: 0%;
+            }
+        }
+    }
+
+    .isection {
+
+
+
+        .isection1 {
+
+            .part1 {
+                p {
+                    font-size: 18px;
+                    font-weight: 500;
+                }
+            }
+
+
+            .part2 {
+
+
+                .sec {
+                    border-radius: 40px;
+                }
+
+
+                .p1 {
+                    font-size: 18px;
+                    font-weight: 500;
+                }
+
+                .card1 {
+                    border: 2px solid rgba(10, 10, 10, 0.036);
+                    border-radius: 15px;
+                    overflow: hidden;
+
+                    .ele1 {
+                        background-color: rgba(255, 0, 0, 0.08);
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        height: 8vh;
+
+                        img {
+                            width: 60%;
+                        }
+                    }
+
+                    .ele2 {
+                        display: flex;
+                        align-items: center;
+                        font-size: 14px;
+                        font-weight: 500;
+                    }
+                }
+
+
+            }
+        }
+
+
+        .isection2 {
+
+
+            .p1{
+                font-size: 14px !important;
+            }
+
+            .card1 {
+                border-radius: 20px;
+                padding: 1.6% 5%;
+                background-color: white;
+                box-shadow: 0px 0px 1px 1px #dadada9f;
+
+                .p1 {
+                    color: rgba(0, 0, 0, 0.516);
+                    font-size: 12px;
+                    font-weight: 500;
+                }
+
+                .p2 {
+                    height: 17vh;
+                }
+
+                .p {
+                    font-size: 12px;
+                    font-weight: 500;
+                    color: gray;
+                }
+            }
+
+            .card2 {
+                border-radius: 25px;
+                overflow: hidden;
+                box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.03);
+                background-color: white;
+
+
+                .card_body {
+                    height: 30vh;
+                }
+            }
+        }
+
+
+        .isection4 {
+            background-color: #F8F8F8;
+
+            .card1 {
+                overflow: hidden;
+               box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.158);
+                border-radius: 10px;
+
+                .ele1 {
+                    overflow-y: hidden;
+                    border-radius: 10px;
+                    height: 30vh;
+                    position: relative;
+
+                    img {
+                        object-position: 0px -5vh;
+                    }
+
+                    .substitle {
+                       font-size: 14px;
+
+                    }
+
+
+
+                }
+
+                .ele2 {
+                    .p1 {
+                        font-size: 18px;
+                        font-weight: 500;
+                    }
+
+                    .p2{
+                        font-size: 14px !important;
+                    }
+                }
+            }
+        }
+
+
+        .isection5 {
+
+            .p1 {
+                font-size: 14px;
+                font-weight: 500;
+                line-height: 1.5;
+                color: rgb(106, 106, 106);
+            }
+
+            button{
+                color: white !important;
+            }
+
+            .part1 {
+
+                input {
+                    border: 1px solid rgba(0, 0, 0, 0.215);
+                    padding: 2% 2%;
+                }
+            }
+        }
+    }
+
+
+}
+
